@@ -3,7 +3,7 @@
 ## Project Details: 
 
 *Life Gamification / Mental Health Improvement*
--Mental Health is still rather taboo, at least in US. If mental health is discussed the primary focus is usually on disabilities. This idea is an app that helps people with decent mental health improve to great
+-Mental Health is still rather taboo, at least in US. If mental health is discussed the primary focus is usually on disabilities. This idea is an app (web) that helps people with decent mental health improve to great
 -Impact: Put a positive focus on mental health and help people go from ok to great
 -Can include mental health exercises and ideas for improvement with interaction irl and self-reporting
 --Ex. Improve social skills by going to a party then making on the app so it can track your improvements
