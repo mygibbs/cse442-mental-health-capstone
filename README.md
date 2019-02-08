@@ -9,3 +9,9 @@
 --Ex. Improve social skills by going to a party then making on the app so it can track your improvements
 -The app would not focus on disabilities, but can provide warning signs and recommend professional help
 -Could be gamified. “I just leveled up my sleep skill by getting 8 hours of sleep/day for a full month!” “I earned the healthy diet badge by consuming Omega-3"
+
+
+
+
+
+## Trello Scrum Board -> https://trello.com/b/8MU2Zrmh
