@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, flash, redirect, request
 from app import app
 from app.forms import LoginForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -9,8 +9,7 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Sally'}
-    return render_template('index.html', title = 'Home', user=user)
+    return render_template('index.html', title = 'Home')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
