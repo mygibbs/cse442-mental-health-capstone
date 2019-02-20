@@ -1,24 +1,46 @@
 <html>
-  <head>
+<head>
     {% if title %}
     <title>{{ title }} - Mental Health App</title>
     {% else %}
     <title>Welcome to our Mental Health App</title>
     {% endif %}
-  </head>
+</head>
 
-  <body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<style>
+  h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
+  .title_font{
+   font-family: "Tangerine", serif;
+  }
+  .padding14{padding:14px 0px;}
+</style>
 
-    <div>
-      Mental Health App:
-      <a href="{{ url_for('index') }}">Home</a>
-      {% if current_user.is_anonymous %}
-      <a href="{{ url_for('login') }}">Login</a>
-      {% else %}
-      <span>Hi, {{ current_user.username }}!</span>
-      <a href="{{ url_for('logout') }}">Logout</a>
-      {% endif %}
-    </div>
+<body  style="background-color:white">
+  <!--top menu-->
+  <header class="w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey">
+    {% if current_user.is_anonymous %}
+    <span class="w3-left w3-xxlarge w3-text-grey title_font">Welcome to Mental Health App&nbsp;&nbsp;</span>
+    {% else %}
+      <span class="w3-left w3-xxxlarge w3-text-grey title_font">&nbsp;&nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}&nbsp;&nbsp;</span>
+    {% endif %}
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="sb_open()">☰</a>
+  </header>
+
+  <!-- Sidebar-->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+    <a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a>
+    <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
+    <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
+    {% if current_user.is_anonymous %}
+        <a href="{{url_for('login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
+    {% else %}
+    <a href="{{url_for('logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+    {% endif %}
+  </nav>
+
     <hr>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -30,5 +52,21 @@
     {% endif %}
     {% endwith %}
     {% block content %}{% endblock %}
-  </body>
+
+<!-- Footer -->
+  <footer class="w3-container w3-grey w3-padding-32 w3-margin-top">
+    <p><a href=" " class="w3-button w3-padding-16 w3-left">Contact us</a></p>
+  </footer>
+
+  <script>
+    // Script to open and close sidebar
+    function sb_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function sb_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+</body>
 </html>
