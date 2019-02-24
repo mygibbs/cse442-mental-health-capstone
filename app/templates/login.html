@@ -1,24 +1,23 @@
 {% extends "base.html" %}
-
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='loginregister.css') }}">
 
 {% endblock %}
 
-{% block content %} 
+{% block content %}
 <div class="container" style="
-	
+
 	position: absolute;
     top:25%;
     bottom: 0;
     left: 0;
     right: 0;
-	margin: auto; 
+	margin: auto;
 	font-family: 'Merriweather', serif;">
-	
-  
+
+
   <div class="row">
-  
+
 	<div class="col-sm-7" style="text-align: left;">
 	<h1 style="color:#41658A"> Welcome to Peace.</h1>
 	<h1 style="color:#41658A"> Ease your mind.</h1>
@@ -34,9 +33,9 @@
 	<p></p>
 	<p></p>
 	</div>
-  
+
 	<div class="col-sm-1"></div>
-	
+
 	<div class="col-sm-4" align="center">
 	<h1 style="color:#41658A">
 	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 224 224" style=" fill:#000000;">
@@ -45,29 +44,30 @@
 	<p></p>
 	<p></p>
 	<form action="" method="post" novalidate>
-		{{ form.hidden_tag() }} 
-		<p> 
-			{{ form.username.label }}<br> 
-			{{ form.username(size=32) }} 
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.username.label }}<br>
+			{{ form.username(size=32) }}
 			{% for error in form.username.errors %}
 			<span style="color: red;">[{{ error }}]</span>
 			{% endfor %}
 		</p>
-		<p> 
-			{{ form.password.label }}<br> 
-			{{ form.password(size=32) }} 
+		<p>
+			{{ form.password.label }}<br>
+			{{ form.password(size=32) }}
 			{% for error in form.password.errors %}
 			<span style="color: red;">[{{ error }}]</span>
 			{% endfor %}
-		</p> 
-		<p>{{ form.remember_me() }} {{form.remember_me.label }}</p> 
-		<p>{{ form.submit() }}</p> 
+		</p>
+		<p>{{ form.remember_me() }} {{form.remember_me.label }}</p>
+		<p>{{ form.submit() }}</p>
 	</form>
 	<p>New User? <a href="{{ url_for('register') }}" style="color: #41658A">Click to Register!</a></p>
 	</div>
-  
+
   </div>
-  
-  
+
+
   </div>
+
 {% endblock %}
