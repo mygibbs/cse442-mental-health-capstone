@@ -8,3 +8,9 @@ from app.main import bp
 @login_required
 def index():
     return render_template('index.html', title='Home')
+
+
+@bp.route('/achievements')
+@login_required
+def achievements():
+    return render_template('achievements.html', title='Achivements')
