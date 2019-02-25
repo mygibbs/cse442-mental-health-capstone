@@ -118,9 +118,9 @@
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
     {% if current_user.is_anonymous %}
-        <a href="{{url_for('login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
+        <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
-    <a href="{{url_for('logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+    <a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
