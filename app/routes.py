@@ -1,9 +1,10 @@
-from flask import render_template, flash, redirect, request, url_for
+from flask import render_template, flash, redirect, request, url_for, Response
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from werkzeug.urls import url_parse
+import time
 
 @app.route('/')
 @app.route('/index')
@@ -46,3 +47,19 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/achievements/')
+def achievements():
+    return render_template('achievements.html')
+
+@app.route('/progress')
+def progress():
+    def generate():
+        x=0
+
+        while x<=100:
+            yield "data:"+str(x) + "\n\n"
+            x=x+2;
+            time.sleep(0.6)
+
+    return Response(generate(),mimetype='text/event-stream')
