@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en">
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {% if title %}
     <title>{{ title }} - Mental Health App</title>
     {% else %}
@@ -44,17 +42,81 @@
 
 </head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+  h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
+  .title_font{
+   font-family: "Tangerine", serif;
+  }
+  .normal_font{color:#000!important;font-style:normal;}
+  .topNavItem{padding-top: 14px; padding-bottom:8px;font-weight: bold; }
+  .no_underline{display: inline-block;}
+  .searchInputBox{padding-top: 14px; padding-bottom:8px;}
+  .material-icons {vertical-align:-14%;}
+</style>
+<!-- Stuff Shaunak needs for login.html, dont delete -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+{% block head %}
+{% endblock %}
+<!-- End of stuff Shaunak needs for login.html -->
 
 <body  style="background-color:white">
   <!--top menu-->
   <header class="w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey" style="height:8%;">
     {% if current_user.is_anonymous %}
-    <span class="w3-left w3-xxlarge w3-text-grey title_font">Welcome to Mental Health App&nbsp;&nbsp;</span>
+    <a herf="" class="w3-white w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font">
+      <i class="material-icons topNavItem">person</i>
+      Welcome to Mental Health App&nbsp;&nbsp;</a>
+    <a href="javascript:void(0)" class="w3-right w3-btn w3-white topNavItem" onclick="sb_open()">
+      <i class="material-icons topNavItem">menu</i>
+    </a>
     {% else %}
-      <span class="w3-left w3-xxxlarge w3-text-grey title_font">&nbsp;&nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}&nbsp;&nbsp;</span>
-    {% endif %}
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="sb_open()">☰</a>
+    <!--person button-->
+    <button class="w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font">
+      <i class="material-icons topNavItem">person</i>
+      &nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}&nbsp;&nbsp;
+    </button>
+    <!--end person botton-->
+
+    <!--side menu botton-->
+    <a href="javascript:void(0)" class="w3-right w3-btn w3-white topNavItem" onclick="sb_open()">
+      <i class="material-icons topNavItem">menu</i>
+    </a>
+    <!--end side menu botton-->
+
+    <!--search button-->
+    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font">
+      <i class="material-icons topNavItem">search</i>
+    </button>
+    <!--end search botton-->
+
+    <!--search input area-->
+    <span class="w3-xlarge w3-right w3-text-black topNavItem title_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <!--end search input area-->
+
+<span class="w3-xlarge w3-right w3-text-black topNavItem title_font">|</span>
+
+    <!--Activity botton-->
+    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font">
+      <i class="material-icons topNavItem">&nbsp;directions_car</i>&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;
+    </button>
+    <!--end Activity botton-->
+
+<span class="w3-xlarge w3-right w3-text-black topNavItem title_font">|</span>
+
+    <!--Home botton-->
+    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font">
+      <i class="material-icons topNavItem">home</i>&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;
+    </button>
+    <!--end Home botton-->
+
+  {% endif %}
   </header>
+<!--end top menu-->
 
   <!-- Sidebar-->
   <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
@@ -74,6 +136,7 @@
     </div>
     {% endif %}
   </nav>
+  <!-- end Sidebar-->
 
     <hr>
 
@@ -87,10 +150,11 @@
     {% endif %}
     {% endwith %}
     {% block content %}{% endblock %}
-
-
-<!-- Footer -->
-
+    <!-- Footer -->
+      <footer class="w3-container w3-grey w3-padding-32 w3-margin-top">
+        <p><a href=" " class="w3-button w3-padding-16 w3-left">Contact us</a></p>
+      </footer>
+    <!--end footer-->
 
   <script>
     // Script to open and close sidebar
