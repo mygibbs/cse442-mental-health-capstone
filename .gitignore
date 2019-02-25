@@ -90,3 +90,12 @@ ENV/
 
 # Scripts
 get-pip.py
+
+# Logs
+logs/
+
+# IDE
+.idea/
+
+# Database file
+app.db

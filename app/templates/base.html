@@ -113,14 +113,14 @@
   <!-- Sidebar-->
   <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
     <a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a>
-    <a href="{{url_for('index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a>
-    <a href="{{url_for('achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
+    <a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a>
+    <a href="{{url_for('auth.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
     {% if current_user.is_anonymous %}
-        <a href="{{url_for('login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
+        <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
-    <a href="{{url_for('logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+    <a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
