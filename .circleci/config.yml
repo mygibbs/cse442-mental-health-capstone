@@ -24,6 +24,24 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
 
+  test:
+    docker:
+      - image: circleci/python:3.6.2
+    steps:
+      - checkout
+      - run:
+          name: Runnning tests
+          command: |
+            . venv/bin/activate
+            py.test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+
 
 #version: 2.1
 #
@@ -54,20 +72,6 @@ jobs:
 #          . venv/bin/activate
 #          pip install -r requirements.txt
 #
-##  test:
-##    docker:
-##      - image: circleci/python:3.6.2
-##    steps:
-##      - checkout
-##      - run:
-##          name: Runnning tests
-##          command: |
-##            . venv/bin/activate
-##            py.test
+
 ##
-#workflows:
-#  version: 2
-#  build_and_test:
-#    jobs:
-#      - build
-##      - test
+
