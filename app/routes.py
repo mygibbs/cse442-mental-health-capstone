@@ -63,6 +63,15 @@ def progress():
             time.sleep(0.6)
 
     return Response(generate(),mimetype='text/event-stream')
+
+
+@app.route('/profile')
+def profile():
+	if current_user.is_authenticated:
+		return render_template('profile.html')
+	else:
+		return redirect(url_for('login'))
+
 from app.forms import ResetPasswordRequestForm
 from app.email import send_password_reset_email
 
@@ -96,3 +105,4 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
