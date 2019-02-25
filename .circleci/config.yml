@@ -2,50 +2,72 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
-
-version: 2.1
-
-orbs:
-    hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
-
-workflows:
-    "Hello Workflow":
-        jobs:
-          - hello/hello-build
-
 version: 2.1
 jobs:
   build:
-    branches:
-      ignore:
-        - master
     docker:
-      - image: circleci/python:3.6.2
-
-    working_directory: ~/CSE442-Mental-Health-Project
-
+      - image: circleci/python:3.6.2-stretch-browsers
+#        environment:
+#          FLASK_CONFIG: testing
+#          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+#      - image: circleci/postgres:9.6.5-alpine-ram
+#        environment:
+#          POSTGRES_USER: ubuntu
+#          POSTGRES_DB: circle_test
+#          POSTGRES_PASSWORD: ""
     steps:
+      - checkout
       - run:
-        name: install dependencies
+          name: Install Python deps in a venv
           command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
 
-#  test:
+
+#version: 2.1
+#
+#orbs:
+#    hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker image
+#
+#workflows:
+#    "Hello Workflow":
+#        jobs:
+#          - hello/hello-build
+#
+#version: 2.1
+#jobs:
+#  build:
+#    branches:
+#      ignore:
+#        - master
 #    docker:
 #      - image: circleci/python:3.6.2
-#    steps:
-#      - checkout
-#      - run:
-#          name: Runnning tests
-#          command: |
-#            . venv/bin/activate
-#            py.test
 #
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-#      - test
+#    working_directory: ~/CSE442-Mental-Health-Project
+#
+#    steps:
+#      - run:
+#        name: install dependencies
+#          command: |
+#          python3 -m venv venv
+#          . venv/bin/activate
+#          pip install -r requirements.txt
+#
+##  test:
+##    docker:
+##      - image: circleci/python:3.6.2
+##    steps:
+##      - checkout
+##      - run:
+##          name: Runnning tests
+##          command: |
+##            . venv/bin/activate
+##            py.test
+##
+#workflows:
+#  version: 2
+#  build_and_test:
+#    jobs:
+#      - build
+##      - test
