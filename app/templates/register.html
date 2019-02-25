@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -27,12 +28,14 @@
         {% endfor %}
       </p>
       <p>
-        {{ form.password2.label }}<br>
-        {{ form.password2(size=32) }}<br>
-        {% for error in form.password2.errors %}
+        {{ form.confirm.label }}<br>
+        {{ form.confirm(size=32) }}<br>
+        {% for error in form.confirm.errors %}
         <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
       </p>
+      <p>{{ form.accept_tos() }} {{form.accept_tos.label }}</p>
+      {{form.recaptcha}}
       <p>{{ form.submit() }}</p>
   </form>
 </div>
