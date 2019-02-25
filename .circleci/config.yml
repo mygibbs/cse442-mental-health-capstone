@@ -35,8 +35,6 @@ jobs:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
-      - restore_cache:
-        key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
           name: Runnning tests
           command: |
