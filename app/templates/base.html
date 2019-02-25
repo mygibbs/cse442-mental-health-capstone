@@ -12,12 +12,22 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         .title_font{
         font-family: "Tangerine", serif;
         }
         .padding14{padding:14px 0px;}
+		
+		.normal_font{color:#000!important;font-style:normal;}
+		.topNavItem{padding-top: 14px; padding-bottom:8px;font-weight: bold; }
+		.no_underline{display: inline-block;}
+		.searchInputBox{padding-top: 14px; padding-bottom:8px;}
+		.material-icons {vertical-align:-14%;}
+		
+		{%block addstyles%}
+		{%endblock%}
      </style>
 
     <!-- Stuff Shaunak needs for login.html, dont delete -->
@@ -37,7 +47,7 @@
     </script>
 
     {% block head %}
-	  {% endblock %}
+	{% endblock %}
     <!-- End of stuff Shaunak needs for login.html -->
 
 </head>
@@ -45,24 +55,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<style>
-  h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
-  .title_font{
-   font-family: "Tangerine", serif;
-  }
-  .normal_font{color:#000!important;font-style:normal;}
-  .topNavItem{padding-top: 14px; padding-bottom:8px;font-weight: bold; }
-  .no_underline{display: inline-block;}
-  .searchInputBox{padding-top: 14px; padding-bottom:8px;}
-  .material-icons {vertical-align:-14%;}
-</style>
-<!-- Stuff Shaunak needs for login.html, dont delete -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-{% block head %}
-{% endblock %}
-<!-- End of stuff Shaunak needs for login.html -->
 
 <body  style="background-color:white">
   <!--top menu-->
