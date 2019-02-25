@@ -96,3 +96,6 @@ logs/
 
 # IDE
 .idea/
+
+# Database file
+app.db
