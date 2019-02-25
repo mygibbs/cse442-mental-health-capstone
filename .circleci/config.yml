@@ -9,9 +9,7 @@ jobs:
       only:
         - develop
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6.2
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,38 +19,27 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
       - run:
-          name: install dependencies
+        name: install dependencies
           command: |
-            python3 -m venv venv
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+
+  test:
+    docker:
+      - image: circleci/python:3.6.2
+    steps:
+      - checkout
+      - run:
+          name: Runnning tests
+          command: |
             . venv/bin/activate
-            pip install -r requirements.txt
+            py.test
 
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-
-      # run tests!
-      # this example uses Django's built-in test-runner
-      # other common Python testing frameworks include pytest and nose
-      # https://pytest.org
-      # https://nose.readthedocs.io
-#      - run:
-#          name: run tests
-#          command: |
-#            . venv/bin/activate
-#            # python manage.py test
-#
-#      - store_artifacts:
-#          path: test-reports
-#          destination: test-reports
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
