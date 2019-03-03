@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block addstyles %}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.container img {
+  width: 50%;
+  height: auto;
+}
+
+.container .editbtn {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #41658A;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+{% endblock %}
+
+{% block content %}
+<div style="padding: 5%; margin: auto; width: 50%; text-align: center;">
+	
+	<div class="container profimg">
+		<img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%;"/>
+		<button type="button" class="btn btn-primary editbtn">Edit Profile Image</button>
+	</div>
+	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">{{ current_user.username }}</h2>
+	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">{{ current_user.email }}</h2>
+</div>
+{% endblock %}
