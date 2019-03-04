@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
 <body  style="background-color:white;overflow:scroll">
   <!--carousel-->
-  <div class="container" style="margin-bottom: 80px;">
+  <div class="container" style="margin-bottom: 60px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -73,10 +73,17 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
 <!--Intro-->
 <div class="w3-row-padding container w3-bottombar w3-border-grey" style="margin-bottom: 50px;">
-      <div class="w3-half" style="margin-right: 120px;">
+      <div class="w3-half w3-hide-small w3-hide-medium" style="margin-right: 120px;">
       <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=architecture-beach-city-1285625.jpg&fm=jpg" class="img-responsive img-rounded"style="width:100%" alt="Image">
       </div>
-      <div class="w3-third" >
+      <div class="w3-third w3-hide-medium" >
+        <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
+        <p class="w3-large"style="margin-bottom:50px">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+        </p>
+      </div>
+      <div class="w3-hide-large w3-hide-small" >
         <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
         <p class="w3-large"style="margin-bottom:50px">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
@@ -102,7 +109,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       </div>
       <div class="col-md-4">
         <div class="thumbnail">
-          <a href="" target="_blank">
+          <a href="{{url_for('auth.activity1')}}" target="_blank">
             <img src="https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?cs=srgb&dl=chatting-cups-dog-745045.jpg&fm=jpg" alt="" style="width:100%">
             <div class="caption">
               <h4>Stress-taming technique</h4>
