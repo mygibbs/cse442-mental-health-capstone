@@ -35,9 +35,12 @@
 	
 	<div class="container profimg">
 		<img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%;"/>
-		<button type="button" class="btn btn-primary editbtn">Edit Profile Image</button>
+		
+		<div style="display:none;">
+		<input type="file" name="pic" accept="image/*">
+		</div>
 	</div>
-	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">{{ current_user.username }}</h2>
-	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">{{ current_user.email }}</h2>
+	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">Username: {{ current_user.username }}</h2>
+	<h2 style="color:#41658A; font-family: 'Merriweather', serif;">Email: {{ current_user.email }}</h2>
 </div>
 {% endblock %}
