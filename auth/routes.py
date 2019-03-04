@@ -54,6 +54,10 @@ def achievements():
     return render_template('achievements.html')
 
 
+@bp.route('/about')
+def about():
+    return render_template('about.html')
+
 @bp.route('/progress')
 def progress():
     def generate():
