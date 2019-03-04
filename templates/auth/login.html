@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% if title %}
+    <title>{{ title }} - Mental Health App</title>
+    {% else %}
+    <title>Welcome to our Mental Health App</title>
+    {% endif %}
+  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+  
+    <!-- Stuff Shaunak needs for login.html, dont delete -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='loginregister.css') }}">
+    <!-- End of stuff Shaunak needs for login.html -->
+    
+</head>
+
+<body  style="background-color:white">
+
+  <div class="container" style="
+	
+	position: absolute;
+    top:25%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	margin: auto; 
+	font-family: 'Merriweather', serif;">
+	
+  
+  <div class="row">
+  
+	<div class="col-sm-7" style="text-align: left;">
+	<h1 style="color:#41658A; font-family: 'Merriweather', serif;"> Welcome to Peace.</h1>
+	<h1 style="color:#41658A; font-family: 'Merriweather', serif;"> Ease your mind.</h1>
+	<p></p>
+	<p>
+	Lorem ipsum dolor sit amet, elitr eleifend ei sea. Ad atqui scribentur duo. Nibh evertitur intellegam te qui. Graece omnium epicurei vel at. Ea vidit similique vix, te pro probo vitae. Te duo quando singulis salutatus.
+	</p>
+	<p>
+	Laoreet recteque ius id, per an nemore alterum accusam. Nec id graecis nominavi, at usu posidonium mediocritatem, mea quod stet persequeris te. Feugiat patrioque in eos, an novum recteque inciderint sea. Aliquid consulatu suscipiantur mei cu. Qui summo praesent an, volumus rationibus sententiae at cum. Albucius nominavi scriptorem sea te.
+	</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	</div>
+  
+	<div class="col-sm-1"></div>
+	
+	<div class="col-sm-4" align="center">
+	<h1 style="color:#41658A; font-family: 'Merriweather', serif;">
+	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 224 224" style=" fill:#000000;">
+	<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,224v-224h224v224z" fill="none"></path><g id="original-icon" fill="#41658a"><g id="surface1"><path d="M94.08,0c-26.9325,0 -42.805,14.6825 -47.88,27.58c-13.895,2.59 -26.425,11.9 -32.76,26.46c-6.51,14.945 -6.23,35.0525 4.06,57.68c-5.8275,7.595 -9.205,17.3775 -7.56,27.3c1.61,9.8 8.4,18.935 20.16,24.36c-4.76,10.99 -3.22,21.7175 2.8,29.26c6.2475,7.84 16.415,12.145 27.02,12.88c3.1325,8.2075 8.9425,13.65 15.26,15.96c7.14,2.6075 14.4025,2.52 18.9,2.52c7.3675,0 13.8425,-3.5175 17.92,-8.96c4.0775,5.425 10.57,8.9075 17.92,8.96c5.005,0.035 12.2675,-1.225 19.32,-5.04c6.2125,-3.36 11.7425,-9.3625 14.84,-17.64c10.045,-0.35 19.985,-2.45 26.6,-8.82c3.6225,-3.5 5.9675,-8.33 6.3,-14c0.2625,-4.48 -1.0325,-9.555 -3.22,-14.98c11.9,-5.39 18.97,-14.49 20.72,-24.36c1.7675,-9.905 -1.8025,-19.8275 -7.98,-27.44c10.29,-22.6275 10.57,-42.735 4.06,-57.68c-6.335,-14.56 -18.865,-23.87 -32.76,-26.46c-5.075,-12.8975 -20.9475,-27.58 -47.88,-27.58c-6.65,0 -12.915,1.715 -16.94,6.86c-0.3675,0.4725 -0.665,1.0325 -0.98,1.54c-0.315,-0.5075 -0.6125,-1.0675 -0.98,-1.54c-4.025,-5.145 -10.29,-6.86 -16.94,-6.86zM94.08,8.96c5.39,0 7.9975,0.8925 9.94,3.36c1.9425,2.4675 3.5,7.8225 3.5,17.5v171.78c0,8.1725 -5.425,13.44 -13.44,13.44c-4.4625,0 -10.64,-0.07 -15.82,-1.96c-5.18,-1.89 -9.3275,-5.075 -11.2,-12.6l-0.84,-3.36h-3.5c-9.0825,0 -18.025,-4.0775 -22.82,-10.08c-4.795,-6.0025 -6.23,-13.5975 -0.28,-23.52l2.94,-4.76l-5.32,-1.68c-12.145,-4.0425 -17.15,-11.445 -18.48,-19.46c-1.295,-7.875 1.505,-16.5725 6.58,-22.26c0.105,-0.0875 0.1925,-0.175 0.28,-0.28l0.14,-0.14c0,0 10.885,-11.9 23.52,-11.9c15.96,0 23.8,7.7 23.8,7.7c1.1025,1.3125 2.87,1.8725 4.515,1.4525c1.6625,-0.42 2.94,-1.7675 3.29,-3.43c0.35,-1.68 -0.2975,-3.4125 -1.645,-4.4625c0,0 -10.9375,-10.22 -29.96,-10.22c-11.1825,0 -20.2475,5.8275 -25.48,10.22c-7.8225,-19.1625 -7.14,-35.0525 -2.1,-46.62c5.53,-12.7225 16.2925,-20.4225 28,-21.84l3.08,-0.42l0.7,-2.8c2.415,-8.435 15.47,-23.66 40.6,-23.66zM129.92,8.96c25.13,0 38.185,15.225 40.6,23.66l0.7,2.8l3.08,0.42c11.7075,1.4175 22.47,9.1175 28,21.84c4.9525,11.375 5.7225,26.8975 -1.68,45.64c-1.3125,0.6125 -2.24,1.8025 -2.52,3.22c0,0 -0.91,4.165 -5.88,8.96c-4.97,4.795 -13.9475,9.94 -30.94,9.94c-1.61,-0.0175 -3.115,0.8225 -3.9375,2.2225c-0.805,1.4 -0.805,3.115 0,4.515c0.8225,1.4 2.3275,2.24 3.9375,2.2225c18.8475,0 30.4675,-6.055 37.1,-12.46c1.1375,-1.085 2.0825,-2.135 2.94,-3.22c3.71,5.39 5.495,12.2675 4.34,18.76c-1.4175,7.98 -6.7375,15.54 -18.9,19.6l-4.9,1.54l2.24,4.62c3.115,6.2475 4.13,11.13 3.92,14.7c-0.21,3.57 -1.4525,6.02 -3.64,8.12c-4.2875,4.13 -13.0375,6.4925 -22.54,6.58c-5.74,-2.0475 -10.2025,-4.9875 -13.3,-8.96c-3.2375,-4.165 -5.18,-9.7125 -5.18,-17.92c0.035,-1.3825 -0.5775,-2.695 -1.645,-3.57c-1.05,-0.875 -2.4675,-1.2075 -3.815,-0.91c-2.0825,0.4725 -3.5525,2.345 -3.5,4.48c0,9.7125 2.5375,17.605 7.14,23.52c3.6925,4.7425 8.5925,7.98 14.14,10.36c-2.31,5.4425 -6.2825,9.0475 -10.78,11.48c-5.4425,2.94 -11.69,3.9375 -14.98,3.92c-8.05,-0.0525 -13.44,-5.2675 -13.44,-13.44v-171.78c0,-9.6775 1.5575,-15.0325 3.5,-17.5c1.9425,-2.4675 4.55,-3.36 9.94,-3.36zM84.7,44.66c-0.1925,0.035 -0.385,0.0875 -0.56,0.14c-2.0825,0.4725 -3.5525,2.345 -3.5,4.48c0,0.7525 -0.77,4.41 -3.78,7.42c-3.01,3.01 -8.3125,6.02 -18.62,6.02c-1.61,-0.0175 -3.115,0.8225 -3.9375,2.2225c-0.805,1.4 -0.805,3.115 0,4.515c0.8225,1.4 2.3275,2.24 3.9375,2.2225c12.0925,0 20.2475,-3.71 25.06,-8.54c4.8125,-4.83 6.3,-10.1325 6.3,-13.86c0.0525,-1.295 -0.4725,-2.5375 -1.4,-3.4125c-0.945,-0.8925 -2.2225,-1.33 -3.5,-1.2075zM147.42,53.62c-0.1925,0.035 -0.385,0.0875 -0.56,0.14c-2.0825,0.4725 -3.5525,2.345 -3.5,4.48c0,5.9675 2.66,13.58 9.1,20.02c6.44,6.44 16.7825,11.34 31.22,11.34c1.61,0.0175 3.115,-0.8225 3.9375,-2.2225c0.805,-1.4 0.805,-3.115 0,-4.515c-0.8225,-1.4 -2.3275,-2.24 -3.9375,-2.2225c-12.4425,0 -20.02,-4.06 -24.78,-8.82c-4.76,-4.76 -6.58,-10.5875 -6.58,-13.58c0.0525,-1.295 -0.4725,-2.5375 -1.4,-3.4125c-0.945,-0.8925 -2.2225,-1.33 -3.5,-1.2075zM48.16,134.4c-2.4675,0.07 -4.41,2.1525 -4.34,4.62c0.07,2.4675 2.1525,4.41 4.62,4.34c12.04,1.995 17.22,8.4175 20.16,15.26c2.94,6.8425 3.08,13.86 3.08,16.1c-0.0175,1.61 0.8225,3.115 2.2225,3.9375c1.4,0.805 3.115,0.805 4.515,0c1.4,-0.8225 2.24,-2.3275 2.2225,-3.9375c0,-2.2225 0,-10.9025 -3.78,-19.74c-3.78,-8.8375 -11.9875,-18.095 -26.88,-20.58c-0.4725,-0.07 -0.9275,-0.07 -1.4,0c-0.14,0 -0.28,0 -0.42,0z"></path></g></g></g>
+	</svg> Peace</h1>
+	<p></p>
+	<p></p>
+	<form action="" method="post" novalidate>
+		{{ form.hidden_tag() }} 
+		<p> 
+			{{ form.username.label }}<br> 
+			{{ form.username(size=32) }} 
+			{% for error in form.username.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p> 
+			{{ form.password.label }}<br> 
+			{{ form.password(size=32) }} 
+			{% for error in form.password.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p> 
+		<p>{{ form.remember_me() }} {{form.remember_me.label }}</p> 
+		<p>{{ form.submit() }}</p> 
+	</form>
+	<p>New User? <a href="{{ url_for('auth.register') }}" style="color: #41658A">Click to Register!</a></p>
+	
+	</div>
+  
+  </div>
+  
+  
+  </div>
+  <!--JQuery, AJAX, Bootstrap stuff, don't delete -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+  <!-- end of JQuery, AJAX, Bootstrap stuff, don't delete -->
+</body>
+
+</html>
