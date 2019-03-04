@@ -9,10 +9,7 @@ from app.main import bp
 def index():
     return render_template('index.html', title='Home')
 
-@bp.route('/about')
-def about():
-    return render_template('about.html')
-    
+
 @bp.route('/achievements')
 @login_required
 def achievements():

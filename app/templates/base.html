@@ -134,7 +134,7 @@ body {font-family: "Lato", sans-serif}
     <a href="" onclick="sb_close()" class="w3-hide-large w3-bar-item w3-button w3-center w3-padding-16">Activity</a>
     <a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
-    <a href="{{url_for('auth.about')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
+    <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
     {% if current_user.is_anonymous %}
         <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
