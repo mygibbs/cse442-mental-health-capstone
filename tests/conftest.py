@@ -12,19 +12,7 @@ class TestConfig(Config):
 
 @pytest.fixture
 def app():
-
-    app = create_app(TestConfig)
-
-    with app.app_context():
-        app.init_db()
-        # self.app_context = self.app.app_context()
-        # self.app_context.push()
-        # db.create_all()
-
-    yield app
-
-    # os.close(db_fd)
-    # os.unlink(db_path)
+    yield create_app(TestConfig)
 
 
 @pytest.fixture
