@@ -9,7 +9,6 @@ from app.auth import bp
 from app.models import User
 
 
-
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -52,10 +51,12 @@ def register():
 @bp.route('/achievements')
 def achievements():
     return render_template('achievements.html')
-    
+
+
 @bp.route('/activity1')
 def activity1():
     return render_template('activity1.html')
+
 
 @bp.route('/progress')
 def progress():
