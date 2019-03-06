@@ -43,13 +43,13 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: tr
-  deploy:
-    executor: heroku/default
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git:
-          only-branch: master
+#  deploy:
+#    executor: heroku/default
+#    steps:
+#      - checkout
+#      - heroku/install
+#      - heroku/deploy-via-git:
+#          only-branch: master
 
 
 workflows:
@@ -60,10 +60,10 @@ workflows:
           requires:
             - build
           context: org-global
-      - deploy:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
-          context: org-global
+#      - deploy:
+#          requires:
+#            - test
+#          filters:
+#            branches:
+#              only: master
+#          context: org-global
