@@ -38,13 +38,13 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: tr
-#  deploy:
-#    executor: heroku/default
-#    steps:
-#      - checkout
-#      - heroku/install
-#      - heroku/deploy-via-git:
-#          only-branch: master
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git:
+          only-branch: master
 
 orbs:
   heroku: circleci/heroku@0.0.5
@@ -53,9 +53,9 @@ workflows:
   build-deploy:
     jobs:
       - build
-#      - deploy:
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: feat/circle-ci-heroku-deploy
