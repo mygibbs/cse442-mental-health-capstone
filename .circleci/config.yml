@@ -32,7 +32,7 @@ jobs:
           name: Running tests
           command: |
             . venv/bin/activate
-            py.test
+            pytest
   test:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
@@ -64,10 +64,10 @@ workflows:
   build-test-deploy:
     jobs:
       - build
-#      - test:
-#          requires:
-#            - build
-#          context: org-global
+      - test:
+          requires:
+            - build
+          context: org-global
 #      - deploy:
 #          requires:
 #            - test
