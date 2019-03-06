@@ -13,8 +13,8 @@ jobs:
     working_directory: ~/CSE442-Mental-Health-Project
     steps:
       - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+#      - run: sudo chown -R circleci:circleci /usr/local/bin
+#      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "requirements.txt" }}
       - run:
@@ -28,7 +28,11 @@ jobs:
           paths:
             - "venv"
   test:
+    docker:
+      - image: circleci/python:3.6.2-stretch-browsers
+    working_directory: ~/CSE442-Mental-Health-Project
     steps:
+      - checkout
       - run:
           name: Running tests
           command: |
