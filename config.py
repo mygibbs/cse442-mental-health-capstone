@@ -20,3 +20,4 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['mygibbs@gmail.com']
     # TESTING = False
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
