@@ -73,7 +73,7 @@
     </a>
     {% else %}
     <!--person button-->
-    <button class="w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font w3-hide-small">
+    <button class="w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font w3-hide-small"  href="{{url_for('main.profile')}}">
       <i class="material-icons topNavItem">person</i>
       &nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}&nbsp;&nbsp;
     </button>
@@ -85,31 +85,9 @@
     </a>
     <!--end side menu botton-->
 
-    <!--search button-->
-    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">
-      <i class="material-icons topNavItem">search</i>
-    </button>
-    <!--end search botton-->
-
-    <!--search input area-->
-    <span class="w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <!--end search input area-->
 
 <span class="w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">|</span>
 
-    <!--Activity botton-->
-    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">
-      <i class="material-icons topNavItem">&nbsp;directions_car</i>&nbsp;&nbsp;&nbsp;Activity&nbsp;&nbsp;
-    </button>
-    <!--end Activity botton-->
-
-<span class="w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">|</span>
-
-    <!--Home botton-->
-    <button class="w3-btn w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">
-    <i class="material-icons topNavItem">home</i>&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;
-    </button>
-    <!--end Home botton-->
     {%endif%}
     <!-- topmenu on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
   </header>
