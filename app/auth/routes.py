@@ -52,7 +52,10 @@ def register():
 @bp.route('/achievements')
 def achievements():
     return render_template('achievements.html')
-
+    
+@bp.route('/activity1')
+def activity1():
+    return render_template('activity1.html')
 
 @bp.route('/progress')
 def progress():
@@ -73,5 +76,3 @@ def profile():
         return render_template('profile.html')
     else:
         return redirect(url_for('auth.login'))
-
-
