@@ -40,7 +40,7 @@ jobs:
       - checkout
       - heroku/install
       - heroku/deploy-via-git:
-          only-branch: feat/circle-ci-heroku-deploy
+          only-branch: master
 
 orbs:
   heroku: circleci/heroku@0.0.5
@@ -54,4 +54,4 @@ workflows:
             - build
           filters:
             branches:
-              only: feat/circle-ci-heroku-deploy
+              only: master
