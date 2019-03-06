@@ -33,17 +33,6 @@ jobs:
           command: |
             . venv/bin/activate
             pytest
-  test:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    working_directory: ~/CSE442-Mental-Health-Project
-    steps:
-      - checkout
-      - run:
-          name: Running tests
-          command: |
-            . venv/bin/activate
-            pytest
       - store_test_results:
           path: test-results
       - store_artifacts:
@@ -61,15 +50,12 @@ orbs:
   heroku: circleci/heroku@0.0.5
 
 workflows:
-  build-test-deploy:
+  build-deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build
 #      - deploy:
 #          requires:
-#            - test
+#            - build
 #          filters:
 #            branches:
 #              only: master
