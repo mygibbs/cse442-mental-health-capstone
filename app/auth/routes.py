@@ -64,8 +64,8 @@ def progress():
 
         while x <= 100:
             yield "data:" + str(x) + "\n\n"
-            x = x + 2
-            time.sleep(0.6)
+            x = x + 1
+            time.sleep(0.5)
 
     return Response(generate(), mimetype='text/event-stream')
 
