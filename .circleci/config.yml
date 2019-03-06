@@ -67,11 +67,9 @@ workflows:
       - test:
           requires:
             - build
-          context: org-global
 #      - deploy:
 #          requires:
 #            - test
 #          filters:
 #            branches:
 #              only: master
-#          context: org-global
