@@ -9,7 +9,6 @@ from app.auth import bp
 from app.models import User
 
 
-
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -54,6 +53,11 @@ def achievements():
     return render_template('achievements.html')
 
 
+@bp.route('/activity1')
+def activity1():
+    return render_template('activity1.html')
+
+
 @bp.route('/progress')
 def progress():
     def generate():
@@ -61,8 +65,8 @@ def progress():
 
         while x <= 100:
             yield "data:" + str(x) + "\n\n"
-            x = x + 2
-            time.sleep(0.6)
+            x = x + 1
+            time.sleep(0.5)
 
     return Response(generate(), mimetype='text/event-stream')
 
@@ -73,5 +77,3 @@ def profile():
         return render_template('profile.html')
     else:
         return redirect(url_for('auth.login'))
-
-

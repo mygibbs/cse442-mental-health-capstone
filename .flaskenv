@@ -1,4 +1,1 @@
 FLASK_APP=run.py
-# FLASH_DEBUG=True
-FLASH_DEBUG=False
-FLASH_ENV=production
