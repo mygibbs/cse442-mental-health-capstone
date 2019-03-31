@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/css/postboot.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <style>
+		body {font-family: "Lato", sans-serif}
+		.mySlides {display: none}
+		
         h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         .title_font{
         font-family: "Tangerine", serif;
@@ -40,7 +43,7 @@
 
     var source = new EventSource("/progress");
     source.onmessage = function(event) {
-      $('.progress-bar').css('width', event.data+'%').attr('aria-valuenow', event.data);
+      $('.indexprog').css('width', event.data+'%').attr('aria-valuenow', event.data);
 
       if(event.data == 100){
         source.close()
@@ -105,17 +108,26 @@
 
   <!-- Sidebar-->
   <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+<<<<<<< HEAD
     <div id="side_close"><a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a></div>
     <div id="side_home"><a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a></div>
     <a href="" onclick="sb_close()" class="w3-hide-large w3-bar-item w3-button w3-center w3-padding-16">Activity</a>
     <div id="side_ach"><a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a></div>
+=======
+    <a href="{{url_for('main.profile')}}" onclick="sb_close()" class="w3-bar-item w3-center w3-padding-16"> <img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%; max-width: 150px;"/></a>
+	<a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a>
+    <a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a>
+    <a href="" onclick="sb_close()" class="w3-hide-large w3-bar-item w3-button w3-center w3-padding-16">Activity</a>
+	<a href="{{url_for('main.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a>
+    <a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
+>>>>>>> e84c1a6bd3275b542cb0d38398f34bed7aac3293
     {% if current_user.is_anonymous %}
         <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
     <div id="side_logout"><a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a></div>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated indexprog" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
     {% endif %}

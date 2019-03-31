@@ -57,9 +57,6 @@ def achievements():
 def activity1():
     return render_template('activity1.html')
 
-@bp.route('/about')
-def about():
-    return render_template('about.html')    
 
 @bp.route('/progress')
 def progress():
