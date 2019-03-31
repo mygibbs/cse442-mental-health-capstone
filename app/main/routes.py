@@ -32,3 +32,8 @@ def profile():
 @login_required
 def activity1():
     return render_template('activity1.html', title='Activity 1')
+
+@bp.route('/activity4')
+@login_required
+def activity4():
+    return render_template('activity4.html', title='Activity 4')
