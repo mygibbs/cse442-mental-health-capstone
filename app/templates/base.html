@@ -120,7 +120,15 @@
     <a href="" onclick="sb_close()" class="w3-hide-large w3-bar-item w3-button w3-center w3-padding-16">Activity</a>
 	<a href="{{url_for('main.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a>
     <a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
+    <a href="{{url_for('auth.about')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
+=======
+>>>>>>> refs/remotes/origin/master
+=======
 >>>>>>> e84c1a6bd3275b542cb0d38398f34bed7aac3293
+>>>>>>> develop
     {% if current_user.is_anonymous %}
         <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
