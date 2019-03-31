@@ -13,7 +13,7 @@ def index():
 @bp.route('/achievements')
 @login_required
 def achievements():
-    return render_template('achievements.html', title='Achivements')
+    return render_template('achievements.html', title='Achievements')
 
 
 @bp.route('/exercises')
