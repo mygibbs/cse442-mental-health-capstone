@@ -63,7 +63,8 @@
 
 <body  style="background-color:white">
   <!--top menu-->
-  <header class="w3-hide-small w3-hide-medium w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey" style="height:11%;">
+  
+  <header class="topnavigation w3-hide-small w3-hide-medium w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey" style="height:11%;">
     {% if current_user.is_anonymous %}
     <a href="" class="w3-hide-small w3-white w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font">
       <i class="material-icons topNavItem">person</i>
@@ -80,7 +81,7 @@
     <!--end person botton-->
 
     <!--side menu botton-->
-    <a href="javascript:void(0)" class="w3-hide-small w3-right w3-btn w3-white topNavItem" onclick="sb_open()">
+    <a id="topnavclicker" href="javascript:void(0)" class="w3-hide-small w3-right w3-btn w3-white topNavItem" onclick="sb_open()">
       <i class="material-icons topNavItem">menu</i>
     </a>
     <!--end side menu botton-->
@@ -95,7 +96,7 @@
 <!--end top menu-->
 
 <!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-white w3-xlarge w3-bottombar w3-border-grey">
+<header class="topnavigation w3-bar w3-top w3-hide-large w3-white w3-xlarge w3-bottombar w3-border-grey">
   {% if current_user.is_anonymous %}
 <div class="w3-bar-item w3-padding-24 w3-wide">Welcome</div>
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="sb_open()"><i class="fa fa-bars"></i></a>
@@ -107,6 +108,12 @@
 
   <!-- Sidebar-->
   <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+<<<<<<< HEAD
+    <div id="side_close"><a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a></div>
+    <div id="side_home"><a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a></div>
+    <a href="" onclick="sb_close()" class="w3-hide-large w3-bar-item w3-button w3-center w3-padding-16">Activity</a>
+    <div id="side_ach"><a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a></div>
+=======
     <a href="{{url_for('main.profile')}}" onclick="sb_close()" class="w3-bar-item w3-center w3-padding-16"> <img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%; max-width: 150px;"/></a>
 	<a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a>
     <a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a>
@@ -114,14 +121,18 @@
 	<a href="{{url_for('main.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a>
     <a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <a href=" " onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Portfolio</a>
     <a href="{{url_for('auth.about')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a>
 =======
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> e84c1a6bd3275b542cb0d38398f34bed7aac3293
+>>>>>>> develop
     {% if current_user.is_anonymous %}
         <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
-    <a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+    <div id="side_logout"><a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a></div>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
         <div class="progress-bar progress-bar-striped progress-bar-animated indexprog" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>

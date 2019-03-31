@@ -15,10 +15,64 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 .title_font{
  font-family: "Tangerine", serif;
 }
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+#overlaynav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+#tourtext{
+  font-size: 50px;
+  color: white;
+}
+#tourcontdiv{
+  text-align: center;
+  left: 50%;
+}
+.current_elt{
+  border: 10px solid red;
+  z-index: 4;
+
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
 </style>
 
-
 <body  style="background-color:white;overflow:scroll">
+  
   <!--carousel-->
   <div class="container" style="margin-bottom: 60px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -27,10 +81,13 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
+
+        
 
         <div class="item active">
           <img src="https://images.pexels.com/photos/1417651/pexels-photo-1417651.jpeg?cs=srgb&dl=cold-frosty-frozen-1417651.jpg&fm=jpg" alt="" style="width:100%; height:10%;"class="img-rounded">
@@ -56,7 +113,102 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           </div>
         </div>
 
+        <div class="item" id="toursquare">
+          <!-- <button type="button" onclick="tour()"> -->
+          <img src="https://cdn.trolleytours.com/wp-content/uploads/2016/07/trolley-tours-of-key-west.jpg" alt="" style="width:100%;height:10%;"class="img-rounded">
+          <div class="carousel-caption">
+            <h3>Take A Tour Of The App</h3>
+            <p></p>
+          </div>
+        
+        </div>
+
       </div>
+      <!-- Functionality for Intro Tour-->
+      <div id="overlay">
+      <div id="overlaynav">
+        <div id="tourtext">Welcome To The Tour</div>
+        <div id="tourcontdiv"><button class="button button2" id="tourcontroller">Next</button></div>
+      </div>
+      </div>
+      <script>
+      var frame = 0;
+      $("#toursquare").click(()=>{
+        
+        document.getElementById("overlay").style.display = "block";
+
+      })
+      $("#tourcontroller").click(()=>{
+        if(frame === 0){
+          $("#tourtext").text("Here We Have the Top Navigation Bar");
+          $(".topnavigation").removeClass("w3-border-grey");
+          $(".topnavigation").addClass("w3-border-red");
+          $(".topnavigation").addClass("current_elt");
+          window.scrollBy(0,800);
+          frame ++;
+        }
+        else if(frame === 1){
+          $("#tourtext").text("Here We Have Our Side Navigation Bar Where You Can Access Your Profile And Progress");
+          window.scrollBy(0,-800);
+          $(".topnavigation").removeClass("current_elt");
+          $(".topnavigation").removeClass("w3-border-red");
+          $(".topnavigation").addClass("w3-border-grey");
+          $("#mySidebar").addClass("current_elt");
+          $("#topnavclicker").click();
+          frame ++;
+        }
+        else if(frame === 2){
+          $("#tourtext").text("From Here You Can Always Close This Menu");
+          window.scrollBy(0,-800);
+          $("#mySidebar").removeClass("current_elt");
+          $("#side_close").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 3){
+          $("#tourtext").text("You Can Also Return Home From Any Part of The App");
+          window.scrollBy(0,-800);
+          $("#side_close").removeClass("current_elt");
+          $("#side_home").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 4){
+          $("#tourtext").text("You Can Also View Your Achievements Right From Here");
+          window.scrollBy(0,-800);
+          $("#side_home").removeClass("current_elt");
+          $("#side_ach").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 5){
+          $("#tourtext").text("Lastly You Can Logout Right Here");
+          window.scrollBy(0,-800);
+          $("#side_ach").removeClass("current_elt");
+          $("#side_logout").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 6){
+          $("#tourtext").text("Here You Can Access Several Activities");
+          $("#activitiesbox").addClass("current_elt");
+          sb_close();
+          $("#side_logout").removeClass("current_elt");
+          $("#tourcontroller").text("Close Tour");
+          window.scrollTo(0,1140);
+          frame ++;
+        }
+        else if(frame === 7){ 
+          $("#activitiesbox").removeClass("current_elt");
+          $("#tourcontroller").text("Next");
+          document.getElementById("overlay").style.display = "none";
+          frame = 0;
+        
+        }
+        
+      })
+      
+      </script>
 
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -94,6 +246,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 <!--end Intro-->
 
 <!--Activity-->
+<div id="activitiesbox">
 <div class="container text-center w3-leftbar w3-border-grey">
   <h1 class="text-left w3-xxxlarge" style="margin-left:30px;margin-bottom: 30px;">Activities</h1>
   <div class="row">
@@ -164,6 +317,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       </div>
     </div>
 </div><br>
+</div>
 <!--end activity-->
 </body>
 {% endblock %}
