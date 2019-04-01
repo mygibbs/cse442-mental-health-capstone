@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
 
-</style>
+  </style>
+
 </head>
 <body>
 
@@ -21,7 +22,7 @@
     <div class="panel panel-default panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip1">Tip 1: &nbsp;Perform diaphragmatic or “deep breathing” exercises
+          <a data-toggle="collapse" class="w3-large" href="#tip1" onclick="getPoints()">Tip 1: &nbsp;Perform diaphragmatic or “deep breathing” exercises
             </a>
         </h4>
       </div>
@@ -38,7 +39,7 @@
     <div class="panel panel-default panel-info">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip2">Tip 2: Try progressive muscle relaxation or “deep muscle” relaxation
+          <a data-toggle="collapse" class="w3-large" href="#tip2" onclick="getPoints()">Tip 2: Try progressive muscle relaxation or “deep muscle” relaxation
         </span>
         </a>
         </h4>
@@ -55,7 +56,7 @@
     <div class="panel panel-default panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip3">Tip 3: Meditate. Use visualization or guided imagery to help you learn to be one with your thoughts
+          <a data-toggle="collapse" class="w3-large" href="#tip3" onclick="getPoints()">Tip 3: Meditate. Use visualization or guided imagery to help you learn to be one with your thoughts
 
         </a>
         </h4>
@@ -73,7 +74,7 @@
     <div class="panel panel-default panel-info">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip4">Tip 4: Consult a psychologist about the use of biofeedback
+          <a data-toggle="collapse" class="w3-large" href="#tip4" onclick="getPoints()">Tip 4: Consult a psychologist about the use of biofeedback
 
         </a>
         </h4>
@@ -92,7 +93,7 @@
     <div class="panel panel-default panel-primary ">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip5">Tip 5: Cultivate a sense of humor
+          <a data-toggle="collapse" class="w3-large" href="#tip5" onclick="getPoints()">Tip 5: Cultivate a sense of humor
 
         </a>
         </h4>
@@ -116,7 +117,26 @@
 </div>
 
 
+<script>
 
+function getPoints(){
+  p = {{ user.points|int }} + 20;
+
+  $.ajax({
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({points: p}),
+      dataType: 'json',
+      url: 'http://127.0.0.1:5000/update_points',
+      success: function (e) {
+          // successful call
+      },
+      error: function(error) {
+          // an error occured
+      }
+  });
+}
+</script>
 
 </body>
 </html>
