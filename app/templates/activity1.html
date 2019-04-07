@@ -119,22 +119,13 @@
 
 <script>
 
+var updated = {{points|int}};
 function getPoints(){
-  p = {{ user.points|int }} + 20;
-
-  $.ajax({
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({points: p}),
-      dataType: 'json',
-      url: 'http://127.0.0.1:5000/update_points',
-      success: function (e) {
-          // successful call
-      },
-      error: function(error) {
-          // an error occured
-      }
-  });
+  updated += 20;
+  var updatedPercent = (updated/1000) * 100;
+  $('.indexprog').css('width', updatedPercent +'%');
+  $('.indexprog').text("XP: " + updated + "/1000");
+  $.post('/update_points');
 }
 </script>
 

@@ -9,42 +9,39 @@ import requests
 @bp.route('/index')
 @login_required
 def index():
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Home', user=current_user)
 
 
 @bp.route('/achievements')
 @login_required
 def achievements():
-    return render_template('achievements.html', title='Achievements')
+    return render_template('achievements.html', title='Achievements', user=current_user)
 
 
 @bp.route('/exercises')
 @login_required
 def exercises():
-    return render_template('exercises.html', title='Exercises')
+    return render_template('exercises.html', title='Exercises', user=current_user)
 
 
 @bp.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', title='Profile')
+    return render_template('profile.html', title='Profile', user = current_user)
 
 
 @bp.route('/activity1')
 @login_required
 def activity1():
-    flash('Congratulations, you have earned 20 points!')
-    return render_template('activity1.html', title='Activity 1', user=current_user)
+    return render_template('activity1.html', title='Activity 1', user=current_user, points = current_user.points)
 
 @bp.route('/update_points', methods=['POST'])
 @login_required
 def update_points():
-    data = request.get_json()
-
-
     user = current_user
-    user.points = data['points']
+    points = user.points + 20
+    user.points = points
     db.session.add(user)
     db.session.commit()
 
-    return render_template('activity1.html', title='Activity 1', user=current_user)
+    return render_template('activity1.html', title='Activity 1', user=current_user, points = points)

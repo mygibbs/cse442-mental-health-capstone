@@ -59,19 +59,6 @@ def activity1():
     return render_template('activity1.html')
 
 
-@bp.route('/progress')
-def progress():
-    def generate():
-        x = 0
-
-        while x <= 100:
-            yield "data:" + str(x) + "\n\n"
-            x = x + 1
-            time.sleep(0.5)
-
-    return Response(generate(), mimetype='text/event-stream')
-
-
 @bp.route('/profile')
 def profile():
     if current_user.is_authenticated:
