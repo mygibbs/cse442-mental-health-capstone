@@ -157,15 +157,25 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           $("#topnavclicker").click();
           frame ++;
         }
+
+        //highlight profile before close
         else if(frame === 2){
-          $("#tourtext").text("From Here You Can Always Close This Menu");
+          $("#tourtext").text("If You Would Like To Check Out Your Profile You Can Click Here");
           window.scrollBy(0,-800);
           $("#mySidebar").removeClass("current_elt");
-          $("#side_close").addClass("current_elt");
+          $("#side_profile").addClass("current_elt");
 
           frame ++;
         }
         else if(frame === 3){
+          $("#tourtext").text("From Here You Can Always Close This Menu");
+          window.scrollBy(0,-800);
+          $("#side_profile").removeClass("current_elt");
+          $("#side_close").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 4){
           $("#tourtext").text("You Can Also Return Home From Any Part of The App");
           window.scrollBy(0,-800);
           $("#side_close").removeClass("current_elt");
@@ -173,23 +183,43 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
           frame ++;
         }
-        else if(frame === 4){
-          $("#tourtext").text("You Can Also View Your Achievements Right From Here");
+
+
+        //highlight exercises 
+        else if(frame === 5){
+          $("#tourtext").text("Check Out All The Available Exercises Right Here");
           window.scrollBy(0,-800);
           $("#side_home").removeClass("current_elt");
-          $("#side_ach").addClass("current_elt");
-
-          frame ++;
-        }
-        else if(frame === 5){
-          $("#tourtext").text("Lastly You Can Logout Right Here");
-          window.scrollBy(0,-800);
-          $("#side_ach").removeClass("current_elt");
-          $("#side_logout").addClass("current_elt");
+          $("#side_exlist").addClass("current_elt");
 
           frame ++;
         }
         else if(frame === 6){
+          $("#tourtext").text("You Can Also View Your Achievements Right From Here");
+          window.scrollBy(0,-800);
+          $("#side_exlist").removeClass("current_elt");
+          $("#side_ach").addClass("current_elt");
+
+          frame ++;
+        }
+        //highlight the about us page
+        else if(frame === 7){
+          $("#tourtext").text("If You Would Like To Know More About Us, Click Here");
+          window.scrollBy(0,-800);
+          $("#side_ach").removeClass("current_elt");
+          $("#side_about").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 8){
+          $("#tourtext").text("Lastly You Can Logout Right Here");
+          window.scrollBy(0,-800);
+          $("#side_about").removeClass("current_elt");
+          $("#side_logout").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 9){
           $("#tourtext").text("Here You Can Access Several Activities");
           $("#activitiesbox").addClass("current_elt");
           sb_close();
@@ -198,7 +228,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           window.scrollTo(0,1140);
           frame ++;
         }
-        else if(frame === 7){ 
+        else if(frame === 10){ 
           $("#activitiesbox").removeClass("current_elt");
           $("#tourcontroller").text("Next");
           document.getElementById("overlay").style.display = "none";
