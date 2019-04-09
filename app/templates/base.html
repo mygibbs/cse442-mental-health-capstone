@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/css/postboot.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 
     <style>
 		body {font-family: "Lato", sans-serif}
@@ -124,9 +125,10 @@
     <div id="side_logout"><a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a></div>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
-        <div class="progress-bar bg-info indexprog" role="progressbar" style="width: calc(({{user.points|int}}/1000) * 100%); background-color: #f99202;" aria-valuenow="{{user.points}}" aria-valuemin="0" aria-valuemax="1000">XP: {{user.points}}/1000</div>
+        <div class="progress-bar bg-success indexprog" role="progressbar" style="width: calc(({{user.points|int % 1000}}/1000) * 100%); background-color: #f99202;" aria-valuenow="{{user.points % 1000}}" aria-valuemin="0" aria-valuemax="1000">XP: {{user.points % 1000}}</div>
       </div>
     </div>
+    <div class="postion-absolute"><h3 class="text-warning lvl" style="margin-left:35%; font-family: 'Luckiest Guy', cursive;">Level {{user.points//1000 + 1}}</h3></div>
     {% endif %}
   </nav>
   <!-- end Sidebar-->

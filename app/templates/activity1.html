@@ -120,11 +120,16 @@
 <script>
 
 var updated = {{points|int}};
+var actualPoint = {{points|int}};
 function getPoints(){
   updated += 20;
+  actualPoint += 20;
+  console.log(actualPoint);
+  updated = updated % 1000;
   var updatedPercent = (updated/1000) * 100;
   $('.indexprog').css('width', updatedPercent +'%');
   $('.indexprog').text("XP: " + updated + "/1000");
+  $('.lvl').text("Level " + Math.floor((actualPoint/1000 + 1)));
   $.post('/update_points');
 }
 </script>

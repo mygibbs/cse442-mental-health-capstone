@@ -39,7 +39,7 @@ def activity1():
 @login_required
 def update_points():
     user = current_user
-    points = user.points + 20
+    points = (user.points + 20)
     user.points = points
     db.session.add(user)
     db.session.commit()
