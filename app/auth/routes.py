@@ -53,6 +53,10 @@ def register():
 def achievements():
     return render_template('achievements.html')
 
+@bp.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @bp.route('/activity1')
 def activity1():
