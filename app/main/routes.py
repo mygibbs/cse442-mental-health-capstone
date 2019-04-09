@@ -49,9 +49,9 @@ def update_points():
 @bp.route('/activity4')
 @login_required
 def activity4():
-    return render_template('activity4.html', title='Activity 4')
+    return render_template('activity4.html', title='Activity 4',user=current_user, points = current_user.points)
 
 @bp.route('/activity6')
 @login_required
 def activity6():
-    return render_template('activity6.html', title='Activity 6')
+    return render_template('activity6.html', title='Activity 6',user=current_user, points = current_user.points)
