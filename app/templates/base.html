@@ -12,17 +12,19 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Stuff Shaunak needs for login.html, dont delete -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">																																															   
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/css/postboot.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+
     <style>
 		body {font-family: "Lato", sans-serif}
 		.mySlides {display: none}
-		
+
         h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         .title_font{
         font-family: "Tangerine", serif;
@@ -39,17 +41,17 @@
 		{%endblock%}
      </style>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
-    var source = new EventSource("/progress");
+/*    var source = new EventSource("/progress");
     source.onmessage = function(event) {
       $('.indexprog').css('width', event.data+'%').attr('aria-valuenow', event.data);
 
       if(event.data == 100){
         source.close()
       }
-    }
+    } */
     </script>
 
   {% block head %}
@@ -64,7 +66,7 @@
 
 <body  style="background-color:white">
   <!--top menu-->
-  
+
   <header class="topnavigation w3-hide-small w3-hide-medium w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey" style="height:11%;">
     {% if current_user.is_anonymous %}
     <a href="" class="w3-hide-small w3-white w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font">
@@ -121,9 +123,10 @@
     <div id="side_logout"><a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a></div>
     <div class="position-relative">
       <div class="progress" style="margin: 5%">
-        <div class="progress-bar progress-bar-striped progress-bar-animated indexprog" role="progressbar" style="width: 0%; background-color: #f99202;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success indexprog" role="progressbar" style="width: calc(({{user.points|int % 1000}}/1000) * 100%); background-color: #f99202;" aria-valuenow="{{user.points % 1000}}" aria-valuemin="0" aria-valuemax="1000">XP: {{user.points % 1000}}</div>
       </div>
     </div>
+    <div class="postion-absolute"><h3 class="text-warning lvl" style="margin-left:35%; font-family: 'Luckiest Guy', cursive;">Level {{user.points//1000 + 1}}</h3></div>
     {% endif %}
   </nav>
   <!-- end Sidebar-->
@@ -159,7 +162,7 @@
   </script>
 
   <!--JQuery, AJAX, Bootstrap stuff, don't delete -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/js/postboot.min.js"></script>
