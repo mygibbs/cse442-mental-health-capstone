@@ -65,14 +65,14 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   cursor: pointer;
 }
 .button2 {
-  background-color: white; 
-  color: black; 
+  background-color: white;
+  color: black;
   border: 2px solid #008CBA;
 }
 </style>
 
 <body  style="background-color:white;overflow:scroll">
-  
+
   <!--carousel-->
   <div class="container" style="margin-bottom: 60px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -87,7 +87,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
 
-        
+
 
         <div class="item active">
           <img src="https://images.pexels.com/photos/1417651/pexels-photo-1417651.jpeg?cs=srgb&dl=cold-frosty-frozen-1417651.jpg&fm=jpg" alt="image of serene mountains in middle of page" style="width:100%; height:10%;"class="img-rounded">
@@ -120,7 +120,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
             <h3>Take A Tour Of The App</h3>
             <p></p>
           </div>
-        
+
         </div>
 
       </div>
@@ -134,7 +134,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       <script>
       var frame = 0;
       $("#toursquare").click(()=>{
-        
+
         document.getElementById("overlay").style.display = "block";
 
       })
@@ -185,7 +185,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         }
 
 
-        //highlight exercises 
+        //highlight exercises
         else if(frame === 5){
           $("#tourtext").text("Check Out All The Available Exercises Right Here");
           window.scrollBy(0,-800);
@@ -228,16 +228,16 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           window.scrollTo(0,1140);
           frame ++;
         }
-        else if(frame === 10){ 
+        else if(frame === 10){
           $("#activitiesbox").removeClass("current_elt");
           $("#tourcontroller").text("Next");
           document.getElementById("overlay").style.display = "none";
           frame = 0;
-        
+
         }
-        
+
       })
-      
+
       </script>
 
       <!-- Left and right controls -->
@@ -262,7 +262,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
         <p class="w3-large"style="margin-bottom:50px">
           Welcome! We built this app to help you find inner peace and help with the challenges of day-to-day mental health difficulties. We live
-          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have 
+          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have
           the chance to work on some mental health exercises, gain points, and reach achievement levels as you progress on your journey to a healthier mind.
         </p>
       </div>
@@ -270,7 +270,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
         <p class="w3-large"style="margin-bottom:50px">
           Welcome! We built this app to help you find inner peace and help with the challenges of day-to-day mental health difficulties. We live
-          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have 
+          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have
           the chance to work on some mental health exercises, gain points, and reach achievement levels as you progress on your journey to a healthier mind.
         </p>
       </div>
@@ -304,7 +304,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       </div>
       <div class="col-md-4">
         <div class="thumbnail">
-          <a href="" target="_blank">
+          <a href="{{url_for('main.activity2')}}" target="_blank">
             <img src="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?cs=srgb&dl=auto-automotive-blur-1842623.jpg&fm=jpg" alt="activity three - click here for some relaxing music to ease your mind" style="width:100%">
             <div class="caption">
               <h4>Listening To Relaxing Music</h4>
@@ -329,10 +329,10 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       </div>
       <div class="col-md-4">
         <div class="thumbnail">
-          <a href="" target="_blank">
+          <a href="{{url_for('main.activity5')}}" target="_blank">
             <img src="https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?cs=srgb&dl=adventure-altitude-backpack-691034.jpg&fm=jpg" alt="activity five - click here for the fifth activity" style="width:100%">
             <div class="caption">
-              <h4>Activity#5</h4>
+              <h4>Meditation</h4>
             </div>
           </a>
         </div>

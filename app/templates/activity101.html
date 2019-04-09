@@ -21,7 +21,7 @@
     <div class="panel panel-default panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip1">Tip 1: &nbsp;Perform diaphragmatic or “deep breathing” exercises
+          <a data-toggle="collapse" class="w3-large" href="#tip1">Tip 6: &nbsp;Perform diaphragmatic or “deep breathing” exercises
             </a>
         </h4>
       </div>
@@ -38,7 +38,7 @@
     <div class="panel panel-default panel-info">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip2">Tip 2: Try progressive muscle relaxation or “deep muscle” relaxation
+          <a data-toggle="collapse" class="w3-large" href="#tip2">Tip 7: Try progressive muscle relaxation or “deep muscle” relaxation
         </span>
         </a>
         </h4>
@@ -55,7 +55,7 @@
     <div class="panel panel-default panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip3">Tip 3: Meditate. Use visualization or guided imagery to help you learn to be one with your thoughts
+          <a data-toggle="collapse" class="w3-large" href="#tip3">Tip 8: Meditate. Use visualization or guided imagery to help you learn to be one with your thoughts
 
         </a>
         </h4>
@@ -73,7 +73,7 @@
     <div class="panel panel-default panel-info">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip4">Tip 4: Consult a psychologist about the use of biofeedback
+          <a data-toggle="collapse" class="w3-large" href="#tip4">Tip 9: Consult a psychologist about the use of biofeedback
 
         </a>
         </h4>
@@ -92,7 +92,7 @@
     <div class="panel panel-default panel-primary ">
       <div class="panel-heading">
         <h4 class="panel-title w3-padding-16">
-          <a data-toggle="collapse" class="w3-large" href="#tip5">Tip 5: Cultivate a sense of humor
+          <a data-toggle="collapse" class="w3-large" href="#tip5">Tip 10: Cultivate a sense of humor
 
         </a>
         </h4>
@@ -110,27 +110,12 @@
 
 <div class="container">
   <ul class="pager">
-    <li><a href="">Previous</a></li>
-    <li><a href="{{url_for('main.activity101')}}">Next</a></li>
+    <li><a href="{{url_for('main.activity1')}}">Previous</a></li>
+    <li><a href="">Next</a></li>
   </ul>
 </div>
 
-<script>
 
-var updated = {{points|int}};
-var actualPoint = {{points|int}};
-function getPoints(){
-  updated += 20;
-  actualPoint += 20;
-  console.log(actualPoint);
-  updated = updated % 1000;
-  var updatedPercent = (updated/1000) * 100;
-  $('.indexprog').css('width', updatedPercent +'%');
-  $('.indexprog').text("XP: " + updated + "/1000");
-  $('.lvl').text("Level " + Math.floor((actualPoint/1000 + 1)));
-  $.post('/update_points');
-}
-</script>
 
 
 </body>
