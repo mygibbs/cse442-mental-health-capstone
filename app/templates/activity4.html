@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{% block content %}
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-size: 20px;
+    width: 25%;
+  }
+  th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-size: 21px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  #ratings{
+text-align: center;
+  }
+  p.solid {
+    border-style: solid;
+    }
+    p{
+      font:  25px Helvetica;
+    }
+    .select-selected {
+  background-color: DodgerBlue;
+}
+pre{
+  font-size: 20px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  width: 100%;
+}
+select {
+  margin: 50px;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(https://cdn1.iconfinder.com/data/icons/apple-watch-bold-line-3/70/142-512.png) 96% / 15% no-repeat #eee;
+}
+
+
+/* CAUTION: IE hackery ahead */
+
+
+select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    }
+}
+  </style>
+  <body>
+  
+  </br>
+  </br>
+  <div>
+    <p><b>Self-care</b>=<u>activities and practices that we can engage in on a regular basis to reduce stress and maintain or enhance our health and well-being.</u> </p>
+    <p>Complete this assessment to reflect on your current self-care strategies. <b>The more self-care strategies you use regularly, you can prevent feeling overwhelmed and burned out.</b></p>
+  </div>
+  <div id="ratings">
+  <pre>
+  <b>Rate the following areas according to how well you are doing:</b>
+    3 - I do this well (e.g frequently)
+    2 - I do this OK (e.g occasionally)
+    1 - I barely do this               
+    0 - I never do this                
+  </pre>
+  </div>
+
+  <div id="physical_sc">
+  <table>
+    <tr>
+      <th>Physical Self-Care                 </th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Eat regularly (e.g breakfast, lunch, and dinner) </td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Eat healthy foods</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Exercise</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Get regular medical care for prevention</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Get medical care when needed</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Take time off when sick</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Get massages</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Dance, swim, walk, run, play sports, or do some other fun physical activity</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Take time to be sexual - with myself, with a partner</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Get enough sleep (7-8 hours is recommended)</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Wear clothes I like and feel comfortable in</td>
+    </tr>
+    <tr>
+      <td><select>        
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+        <option value="0">0</option>
+      </select></td>
+      <td>Take vacations: several days to a full week away from home or off of paid work/school work</td>
+    </tr>
+  </table>  
+  </div>
+  <div id="psychological_sc">
+    <table>
+      <tr>
+        <th>Psychological Self-Care            </th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Take day trips or mini-vacations; visit fun places outside of my regular routine </td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Make time away from technology: phones, email, and the internet</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Make time for self-reflection</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Notice my inner experience - listen to my thoughts, beliefs, attitudes, feelings</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Go to visit a counselor or attend a support group</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Write in a journal</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Read literature (books, magazines, online, etc.) that is unrelated to work</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Do something at which I am not an expert or in charge</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Focus on minimizing stress in my life</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Engage my intelligence in a new area, e.g., go to an art show, sports event, theatre</td>
+      </tr>
+      <tr>
+        <td><select>        
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+          <option value="0">0</option>
+        </select></td>
+        <td>Say no to extra responsibilities sometimes</td>
+      </tr>
+    </table>  
+    </div>
+
+    <div id="emotional_sc">
+      <table>
+        <tr>
+          <th>Emotional Self-Care                </th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Spend time with others whose company I enjoy</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Stay in contact with important people in my life</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Give myself affirmations; praise myself for work well done</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Love myself, appreciate who I am</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Re-read favorite books, re-view favorite movies</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Identify comforting activities, objects, people, places and seek them out</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Allow myself to cry</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Find things that make me laugh</td>
+        </tr>
+        <tr>
+          <td><select>        
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select></td>
+          <td>Express my outrage in social action, letters, donations, marches, protests</td>
+        </tr>
+      </table>  
+      </div>
+
+      <div id="spritual_sc">
+        <table>
+          <tr>
+            <th>Spiritual Self-Care                </th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Make time for reflection</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Spend time in nature</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Find a spiritual connection or community</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Be open to inspiration</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Cherish my optimism and hope</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Be aware of non-material aspects of life</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Be open to not knowing</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Identify what is meaningful to me and notice its place in my life</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Meditate</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Pray</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Sing</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Have experiences of awe</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Contribute to causes in which I believe</td>
+          </tr>
+          <tr>
+            <td><select>        
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select></td>
+            <td>Read inspirational literature or listen to inspirational talks, music</td>
+          </tr>
+        </table>  
+        </div>
+
+        <div id="relationship_sc">
+          <table>
+            <tr>
+              <th>Relationship Self-Care             </th>
+              <th></th>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Schedule regular dates with my boyfriend, girlfriend, partner, or spouse</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Schedule regular activities with children in my life, if applicable</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Make time to see friends</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Call, check on, or see my relatives</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Spend time with my companion animals/pets</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Stay in contact with faraway friends</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Make time to reply to personal messages: texts, voicemails, emails, and letters</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Allow others to do things for me</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Enlarge my social circle</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Ask for help when I need it</td>
+            </tr>
+            <tr>
+              <td><select>        
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">0</option>
+              </select></td>
+              <td>Share a fear, hope, or secret with someone I trust</td>
+            </tr>
+          </table>  
+          </div>
+        
+          <div id="workplace_sc">
+            <table>
+              <tr>
+                <th>Workplace or Professional Self-Care</th>
+                <th></th>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Take a break during the school day/workday (e.g., lunch, visit friends) </td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Take time to chat with other students/friends/co-workers</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Make quiet time to complete tasks</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Identify projects or tasks that are exciting and rewarding</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Balance my work tasks so that no one day or part of a day is "too much"</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Arrange work space so it is comfortable and comforting</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Get regular supervision or consultation</td>
+              </tr>
+              <tr>
+                <td><select>        
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="0">0</option>
+                </select></td>
+                <td>Have a peer support group: group of peers I can share work frustrations and successes with</td>
+              </tr>
+            </table>  
+            </div>
+  
+    
+    
+          </br>
+            <div>
+    <p class="solid"><u><b>When you are fishished with this assessment, look for patterns in your responses:</b></u>
+    Are you more active in some areas of self-care, but ignore others?
+    Are there items on your list that make you think, "I would never do that?" or "I would like to try that?"
+    Listen to your inner responses, your internal dialogue about self-care and making yourself a priority!
+    </p>
+  </div>
+
+  <div>
+      <form action="{{url_for('main.index')}}">
+        <input class="button button1" type="submit" value="Click Here When You Have Finished Your Reflection" />
+    </form>
+  </div>
+  </body>
+  </html>
+  
+{% endblock %}

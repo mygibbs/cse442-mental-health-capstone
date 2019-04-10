@@ -41,6 +41,7 @@ def register():
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
+        user.points = 0
         db.session.add(user)
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
@@ -52,23 +53,14 @@ def register():
 def achievements():
     return render_template('achievements.html')
 
+@bp.route('/about')
+def about():
+    return render_template('about.html',user=current_user, points = current_user.points)
+
 
 @bp.route('/activity1')
 def activity1():
     return render_template('activity1.html')
-
-
-@bp.route('/progress')
-def progress():
-    def generate():
-        x = 0
-
-        while x <= 100:
-            yield "data:" + str(x) + "\n\n"
-            x = x + 1
-            time.sleep(0.5)
-
-    return Response(generate(), mimetype='text/event-stream')
 
 
 @bp.route('/profile')

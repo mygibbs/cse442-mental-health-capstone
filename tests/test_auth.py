@@ -40,12 +40,9 @@ def test_achievements(client):
     assert response.status_code == 200
 
 
-def test_progress(client):
-    response = client.get('/progress', follow_redirects=True)
-    assert response.status_code == 200
-
-
 def test_profile(client):
     response = client.get('/profile', follow_redirects=True)
     assert response.status_code == 200
+
+
 
