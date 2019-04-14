@@ -28,6 +28,9 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   z-index: 2;
   cursor: pointer;
 }
+#a_1{
+  z-index: 2;
+}
 #overlaynav{
   position: absolute;
   top: 50%;
@@ -39,6 +42,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 }
 #tourtext{
   font-size: 50px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: white;
 }
 #tourcontdiv{
@@ -220,16 +224,56 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           frame ++;
         }
         else if(frame === 9){
-          $("#tourtext").text("Here You Can Access Several Activities");
-          $("#activitiesbox").addClass("current_elt");
-          sb_close();
-          $("#side_logout").removeClass("current_elt");
-          $("#tourcontroller").text("Close Tour");
           window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The First Activity Here - Take A Psychological Quiz");
+          $("#side_logout").removeClass("current_elt");
+          $("#a_1").addClass("current_elt");
+          sb_close();
           frame ++;
         }
         else if(frame === 10){
-          $("#activitiesbox").removeClass("current_elt");
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Second Activity Here - Practice A Stress Reducing Technique");
+          $("#a_1").removeClass("current_elt");
+          $("#a_2").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 11){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Third Activity Here - Listen To Stress Reducing Music");
+          $("#a_2").removeClass("current_elt");
+          $("#a_3").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 12){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fourth Activity Here - Take A Self-Care Assessment And Find Yourself");
+          $("#a_3").removeClass("current_elt");
+          $("#a_4").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 13){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fifth Activity Here - Do Some Mindful Meditation");
+          $("#a_4").removeClass("current_elt");
+          $("#a_5").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 14){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Sixth Activity Here - Try To Work On Your Breathing");
+          $("#a_5").removeClass("current_elt");
+          $("#a_6").addClass("current_elt");
+          $("#tourcontroller").text("Close Tour");
+          frame ++;
+        }
+        else if(frame === 15){
+          window.scrollBy(0,-2000);
+          $("#a_6").removeClass("current_elt");
           $("#tourcontroller").text("Next");
           document.getElementById("overlay").style.display = "none";
           frame = 0;
@@ -283,7 +327,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   <h1 class="text-left w3-xxxlarge" style="margin-left:30px;margin-bottom: 30px;">Activities</h1>
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_1" class="thumbnail">
           <a href="{{url_for('main.activity4')}}" target="_blank">
             <img src="https://images.pexels.com/photos/934718/pexels-photo-934718.jpeg?cs=srgb&dl=alone-beach-blue-skies-934718.jpg&fm=jpg" alt="activity one block - image of man on journey. Click here for the first exercise" style="width:100%">
             <div class="caption">
@@ -293,7 +337,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_2" class="thumbnail">
           <a href="{{url_for('auth.activity1')}}" target="_blank">
             <img src="https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?cs=srgb&dl=chatting-cups-dog-745045.jpg&fm=jpg" alt="activity two - click here for a stress taming technique" style="width:100%">
             <div class="caption">
@@ -303,7 +347,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_3" class="thumbnail">
           <a href="{{url_for('main.activity2')}}" target="_blank">
             <img src="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?cs=srgb&dl=auto-automotive-blur-1842623.jpg&fm=jpg" alt="activity three - click here for some relaxing music to ease your mind" style="width:100%">
             <div class="caption">
@@ -318,7 +362,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 <div class="container text-center w3-leftbar w3-border-grey">
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_4" class="thumbnail">
           <a href="{{url_for('main.activity4')}}" target="_blank">
             <img src="https://blog.mindvalley.com/wp-content/uploads/2018/01/Self-Love-Techniques-quote.jpg" alt="activity four - click here for the fourth activity" style="width:100%">
             <div class="caption">
@@ -328,7 +372,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_5" class="thumbnail">
           <a href="{{url_for('main.activity5')}}" target="_blank">
             <img src="https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?cs=srgb&dl=adventure-altitude-backpack-691034.jpg&fm=jpg" alt="activity five - click here for the fifth activity" style="width:100%">
             <div class="caption">
@@ -338,7 +382,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_6" class="thumbnail">
           <a href="{{url_for('main.activity6')}}" target="_blank">
             <img src="https://www.optimistdaily.com/wp-content/uploads/2017/04/physed-breathing-superJumbo.jpg" alt="activity six - deep breathing exercise" width="100%">
             <div class="caption">
