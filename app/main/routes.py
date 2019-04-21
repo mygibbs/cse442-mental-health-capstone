@@ -100,3 +100,8 @@ def activity2_popular():
 @login_required
 def activity5():
     return render_template('activity5.html', title='Activity 5',user=current_user, points = current_user.points)
+
+@bp.route('/contact')
+@login_required
+def contact():
+    return render_template('contact.html', title='Contact Us',user=current_user, points = current_user.points)
