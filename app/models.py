@@ -9,6 +9,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     points = db.Column(db.Integer)
+    lastlogin = db.Column(db.Integer)#this will be in ticks(seconds)
+    currstreak = db.Column(db.Integer)#min value = 1
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password, method='sha256')

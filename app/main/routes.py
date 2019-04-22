@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from app.main import bp
 import json
 import requests
+import time
 
 @bp.route('/')
 @bp.route('/index')
@@ -45,6 +46,37 @@ def update_points():
     db.session.commit()
 
     return render_template('activity1.html', title='Activity 1', user=current_user, points = points)
+
+@bp.route('/update_lastlogin', methods=['POST'])
+@login_required
+def update_lastlogin():
+    user = current_user
+    currtime = time.time()
+    lastlogin = user.lastlogin
+    	
+    if user.lastlogin is None:#first time login setup
+        user.lastlogin = currtime
+        user.currstreak = 1
+        db.session.add(user)
+        db.session.commit()
+        return render_template('index.html', title='Home', user=current_user)
+    
+    if currtime-lastlogin > 86400 and currtime-lastlogin < 172800:
+        #its been more than 24 hours and less than 48 hours since last login, re-up
+        user.currstreak = user.currstreak+1 #up streak by 1
+        user.lastlogin = currtime #set new lastlogin, user needs to sign in again between 24 to 48 hours from this point to maintain streak
+        db.session.add(user)
+        db.session.commit()
+        return render_template('index.html', title='Home', user=current_user)
+        
+    elif currtime-lastlogin > 172800:#user didnt maintain streak, reset
+        user.currstreak = 1
+        user.lastlogin = currtime#set new lastlogin, user needs to sign in again between 24 to 48 hours from this point to maintain streak
+        db.session.add(user)
+        db.session.commit()
+        return render_template('index.html', title='Home', user=current_user)
+        
+    return render_template('index.html', title='Home', user=current_user)
 
 @bp.route('/activity4')
 @login_required
