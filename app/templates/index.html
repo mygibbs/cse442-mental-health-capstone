@@ -75,6 +75,14 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 }
 </style>
 
+<script>
+function update_lastlogin(){
+  $.post('/update_lastlogin');
+}
+
+window.onload = update_lastlogin;
+</script>
+
 <body  style="background-color:white;overflow:scroll">
 
   <!--carousel-->
