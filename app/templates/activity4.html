@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html"%}
 {% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
   table {
     font-family: arial, sans-serif;
@@ -70,7 +71,9 @@ select {
   background: url(https://cdn1.iconfinder.com/data/icons/apple-watch-bold-line-3/70/142-512.png) 96% / 15% no-repeat #eee;
 }
 
-
+#bottom_button{
+  padding-bottom: 15px;
+}
 /* CAUTION: IE hackery ahead */
 
 
@@ -105,13 +108,14 @@ select::-ms-expand {
   </div>
 
   <div id="physical_sc">
-  <table>
+  <table class="sc_table">
     <tr>
       <th>Physical Self-Care                 </th>
       <th></th>
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -121,6 +125,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -130,6 +135,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -139,6 +145,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -148,6 +155,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -157,6 +165,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -166,6 +175,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -175,6 +185,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -184,6 +195,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -193,6 +205,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -202,6 +215,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -211,6 +225,7 @@ select::-ms-expand {
     </tr>
     <tr>
       <td><select>        
+        <option value="_">_</option>
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="1">1</option>
@@ -221,13 +236,14 @@ select::-ms-expand {
   </table>  
   </div>
   <div id="psychological_sc">
-    <table>
+    <table class="sc_table">
       <tr>
         <th>Psychological Self-Care            </th>
         <th></th>
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -237,6 +253,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -246,6 +263,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -255,6 +273,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -264,6 +283,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -273,6 +293,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -282,6 +303,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -291,6 +313,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -300,6 +323,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -309,6 +333,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -318,6 +343,7 @@ select::-ms-expand {
       </tr>
       <tr>
         <td><select>        
+          <option value="_">_</option>
           <option value="3">3</option>
           <option value="2">2</option>
           <option value="1">1</option>
@@ -329,13 +355,14 @@ select::-ms-expand {
     </div>
 
     <div id="emotional_sc">
-      <table>
+      <table class="sc_table">
         <tr>
           <th>Emotional Self-Care                </th>
           <th></th>
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -345,6 +372,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -354,6 +382,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -363,6 +392,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -372,6 +402,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -381,6 +412,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -390,6 +422,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -399,6 +432,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -408,6 +442,7 @@ select::-ms-expand {
         </tr>
         <tr>
           <td><select>        
+            <option value="_">_</option>
             <option value="3">3</option>
             <option value="2">2</option>
             <option value="1">1</option>
@@ -419,13 +454,14 @@ select::-ms-expand {
       </div>
 
       <div id="spritual_sc">
-        <table>
+        <table class="sc_table">
           <tr>
             <th>Spiritual Self-Care                </th>
             <th></th>
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -435,6 +471,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -444,6 +481,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -453,6 +491,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -462,6 +501,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -471,6 +511,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -480,6 +521,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -489,6 +531,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -498,6 +541,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -507,6 +551,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -516,6 +561,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -525,6 +571,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -534,6 +581,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -543,6 +591,7 @@ select::-ms-expand {
           </tr>
           <tr>
             <td><select>        
+              <option value="_">_</option>
               <option value="3">3</option>
               <option value="2">2</option>
               <option value="1">1</option>
@@ -554,14 +603,14 @@ select::-ms-expand {
         </div>
 
         <div id="relationship_sc">
-          <table>
+          <table class="sc_table">
             <tr>
               <th>Relationship Self-Care             </th>
               <th></th>
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -570,7 +619,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -579,7 +628,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -588,7 +637,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -597,7 +646,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -606,7 +655,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -615,7 +664,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -624,7 +673,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -633,7 +682,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -642,7 +691,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -651,7 +700,7 @@ select::-ms-expand {
             </tr>
             <tr>
               <td><select>        
-                <option value="3">3</option>
+<option value="_">_</option><option value="3">3</option>
                 <option value="2">2</option>
                 <option value="1">1</option>
                 <option value="0">0</option>
@@ -662,14 +711,14 @@ select::-ms-expand {
           </div>
         
           <div id="workplace_sc">
-            <table>
+            <table class="sc_table">
               <tr>
                 <th>Workplace or Professional Self-Care</th>
                 <th></th>
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -678,7 +727,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -687,7 +736,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -696,7 +745,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -705,7 +754,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -714,7 +763,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -723,7 +772,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -732,7 +781,7 @@ select::-ms-expand {
               </tr>
               <tr>
                 <td><select>        
-                  <option value="3">3</option>
+  <option value="_">_</option><option value="3">3</option>
                   <option value="2">2</option>
                   <option value="1">1</option>
                   <option value="0">0</option>
@@ -753,11 +802,43 @@ select::-ms-expand {
     </p>
   </div>
 
-  <div>
-      <form action="{{url_for('main.index')}}">
-        <input class="button button1" type="submit" value="Click Here When You Have Finished Your Reflection" />
+  <div id="bottom_button">
+      <form action="{{url_for('main.index')}}" onsubmit="ifClicked()">
+        <input class="button button1" type="submit" value="Click Here When You Have Finished Your Reflection"  />
     </form>
   </div>
+  <script>
+  var updated = {{points|int}};
+  var actualPoint = {{points|int}};
+  ifClicked = () => {
+      
+      $.each($("select"), function() {
+        if( $(this).val() !== "_"){
+          updated += 1;
+          actualPoint += 1;
+        }
+      });
+    updated = updated % 1000;
+    var updatedPercent = (updated/1000) * 100;
+    $('.indexprog').css('width', updatedPercent +'%');
+    $('.indexprog').text("XP: " + updated + "/1000");
+    $('.lvl').text("Level " + Math.floor((actualPoint/1000 + 1)));
+    $.post('/update_points');
+  }
+
+
+  function getPoints(){
+    updated += 200;
+    actualPoint += 200;
+    console.log(actualPoint);
+    updated = updated % 1000;
+    var updatedPercent = (updated/1000) * 100;
+    $('.indexprog').css('width', updatedPercent +'%');
+    $('.indexprog').text("XP: " + updated + "/1000");
+    $('.lvl').text("Level " + Math.floor((actualPoint/1000 + 1)));
+    $.post('/update_points');
+  }
+</script>
   </body>
   </html>
   
