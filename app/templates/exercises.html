@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block head %}
+	<script>
+	function toggle(input)//input can be 'vision', 'hearing', 'speech'.
+	{
+		var currButton = document.getElementById(input+'-toggle');
+		if(currButton.getAttribute('aria-pressed') == 'false')
+		{
+			var allElems = document.getElementsByClassName(input);
+			for (var i = 0; i <allElems.length; i++)
+			{
+				allElems[i].style.display = 'none';
+			}
+			if(input == 'vision'){currButton.innerHTML = ' Show Acivities that Require Vision ';}
+			else if(input == 'hearing'){currButton.innerHTML = ' Show Acivities that Require Hearing ';}
+			else{currButton.innerHTML = ' Show Acivities that Require Speech ';}
+
+			currButton.style.background = '#41658A';
+			currButton.style.color = '#FFFFFF';
+		}
+		else
+		{
+			var allElems = document.getElementsByClassName(input);
+			for (var i = 0; i <allElems.length; i++)
+			{
+				allElems[i].style.display = 'block';
+			}
+			if(input == 'vision'){currButton.innerHTML = ' Hide Acivities that Require Vision ';}
+			else if(input == 'hearing'){currButton.innerHTML = ' Hide Acivities that Require Hearing ';}
+			else{currButton.innerHTML = ' Hide Acivities that Require Speech ';}
+
+			currButton.style.background = '#FFFFFF';
+			currButton.style.color = '#000000';
+		}
+
+	}
+	</script>
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 5%; margin: auto; font-family: 'Merriweather', serif;">
+
+  <div class="row" style="padding: 0;">
+	<div class="col-md-12" style="text-align: center;">
+		<h1>Exercises</h1>
+	</div>
+  </div>
+
+
+  <div class="row" style="padding: 2%;">
+	<div class="col-md-12" style="text-align: center;">
+		<div class="btn-group">
+			<button id="vision-toggle" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggle('vision')" style="background-color: #FFFFFF; color: #000000;"> Hide Acivities that Require Vision </button>
+			<button id="hearing-toggle" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggle('hearing')" style="background-color: #FFFFFF; color: #000000;"> Hide Acivities that Require Hearing </button>
+			<button id="speech-toggle" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="toggle('speech')" style="background-color: #FFFFFF; color: #000000;"> Hide Acivities that Require Speech </button>
+		</div>
+	</div>
+  </div>
+
+
+  <div class="row" style="padding: 5%; padding-bottom: 2%;">
+
+
+
+
+
+	<div class="col-md-3" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg1.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title">Tame Your Stress</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity1')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg3.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i> Relaxing Music</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg4.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i>  Relaxing Music - Classical</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_classical')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg5.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i>  Relaxing Music - Strings</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_stringed')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg7.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i> Relaxing Music - Piano</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_piano')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg8.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i> Relaxing Music - Wind</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_wind')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg9.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i> Relaxing Music - Natural</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_natural')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3 hearing" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg10.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="fas fa-headphones"></i> Relaxing Music - Popular</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity2_popular')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg17.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title">Self Care Test</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity4')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3 vision" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg12.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title"><i class="far fa-eye"></i>Video Assisted Meditation</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity5')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-3" style="padding-bottom: 5%;">
+		<div class="card">
+			<img class="card-img-top" src="{{ url_for('static', filename='bg13.jpg') }}" alt="Card image" style="width:100%; padding-left: 0; padding-right: 0;">
+			<div class="card-body" style="text-align: center;">
+				<h4 class="card-title">Text Assisted Meditation</h4>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%; background-color:#41658A;">
+					</div>
+				</div>
+				<div style="padding-top: 7%;">
+					<a href="{{url_for('main.activity6')}}" class="btn" style="background-color: #41658A; color:#FFFFFF;">Go!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{% block content %}
+<style>
+
+#casing{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: lavender;
+    font-size: 20px;
+}
+.breathing_text{
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+    text-align: center;
+
+    
+}
+    .breathing_text:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  font-size: 15px;
+}
+</style>
+<body>
+
+    <div id="casing">
+        
+    <h2>Deep Breathing Has Been Shown To Reduce Stress</h2>
+    <div class="breathing_text">
+        <p>This Video Can Guide You Through A Stress Reducing Deep Breathing Technique</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YFSc7Ck0Ao0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="breathing_text">
+        <u>How To Breathe</u>
+        <pre>
+            1. Sit comfortably, with your eyes closed and bring your attention to your breathing.
+            2. Imagine that you have a baloon in your stomach.
+            3. Every time you breathe in, the baloon inflates.
+            4. Breathing from your abdomen, inhale through your nose slowly to a count of four.
+            5. Pause and hold your breath to a count of four and then slowly exhale through your mouth to a count of four.
+            6. Repeat for 3 to 5 minutes, placing a hand on your stomach to feel it rising and alling as you breathe.
+        </pre>
+    </div>
+    <div class="breathing_text">
+        <u>Breath Focus Technique</u>
+        <pre>    
+            While you do deep breathing, use a picture in your mind and a word or phrase to help you feel more relaxed.
+            
+            1. Close your eyes if they're open.
+            2. Take a few big, deep breaths.
+            3. Breathe in. As you do that, imagine that the air is filled with a sense of peace and calm. Try to feel it throughout your body.
+            4. Breathe out. While you're doing it, imagine that the air leaves with your stress and tension.
+            5. Now use a word or phrase with your breath. As you breathe in, say in your mind, "I breathe in peace and calm."
+            6. As you breathe out, say in your mind, "I breathe out stress and tension."
+            7. Continue for 10 to 20 minutes. 
+        </pre>    
+    </div>
+    <div class="breathing_text">
+            <u>Progressive Muscle Relaxation Technique</u>
+            <pre>    
+            In this technique, you breathe in as you tense a muscle group and breathe out as you release it. Progressive muscle relaxation helps you relax physically and mentally.
+            
+            1. Lie comfortably on the floor.
+            2. Take a few deep breaths to relax.
+            3. Breathe in. Tense the muscles of your feet.
+            4. Breathe out. Release the tension in your feet.
+            5. Breathe in. Tense your calf muscles.
+            6. Breathe out. Release the tension in your calves.
+            7. Work your way up your body. Tense each muscle group. This includes your legs, belly, chest, fingers, arms, shoulders, neck, and face.
+            </pre>    
+    </div>
+    <div class="breathing_text">
+            <u>Modified Lion's Breath Technique</u>
+            <pre>    
+            As you do this exercise, imagine that you're a lion. Let all of your breath out with a big, open mouth.
+            
+            1. Sit comfortably on the floor or in a chair.
+            2. Breathe in through your nose. Fill your belly all the way up with air.
+            3. When you can't breathe in any more, open your mouth as wide as you can. Breathe out with an "Ahh" sound.
+            4. Repeat several times.
+            </pre>    
+    </div>
+
+    </div>
+
+</body>
+</html>
+{% endblock %}

@@ -15,10 +15,76 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 .title_font{
  font-family: "Tangerine", serif;
 }
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+#a_1{
+  z-index: 2;
+}
+#overlaynav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+#tourtext{
+  font-size: 50px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+}
+#tourcontdiv{
+  text-align: center;
+  left: 50%;
+}
+.current_elt{
+  border: 10px solid red;
+  z-index: 4;
+
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
 </style>
 
+<script>
+function update_lastlogin(){
+  $.post('/update_lastlogin');
+}
+
+window.onload = update_lastlogin;
+</script>
 
 <body  style="background-color:white;overflow:scroll">
+
   <!--carousel-->
   <div class="container" style="margin-bottom: 60px;">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -27,13 +93,16 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
 
+
+
         <div class="item active">
-          <img src="https://images.pexels.com/photos/1417651/pexels-photo-1417651.jpeg?cs=srgb&dl=cold-frosty-frozen-1417651.jpg&fm=jpg" alt="" style="width:100%; height:10%;"class="img-rounded">
+          <img src="https://images.pexels.com/photos/1417651/pexels-photo-1417651.jpeg?cs=srgb&dl=cold-frosty-frozen-1417651.jpg&fm=jpg" alt="image of serene mountains in middle of page" style="width:100%; height:10%;"class="img-rounded">
           <div class="carousel-caption">
             <h3></h3>
             <p></p>
@@ -41,7 +110,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
 
         <div class="item">
-          <img src="https://images.pexels.com/photos/1430675/pexels-photo-1430675.jpeg?cs=srgb&dl=beach-daylight-fun-1430675.jpg&fm=jpg" alt="" style="width:100%;height:10%;"class="img-rounded">
+          <img src="https://images.pexels.com/photos/1430675/pexels-photo-1430675.jpeg?cs=srgb&dl=beach-daylight-fun-1430675.jpg&fm=jpg" alt="image of serene beach in center of page with man gracefully riding jet ski" style="width:100%;height:10%;"class="img-rounded">
           <div class="carousel-caption">
             <h3></h3>
             <p></p>
@@ -49,14 +118,179 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
 
         <div class="item">
-          <img src="https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?cs=srgb&dl=background-camera-close-up-1464143.jpg&fm=jpg" alt="" style="width:100%;height:10%;" class="img-rounded">
+          <img src="https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?cs=srgb&dl=background-camera-close-up-1464143.jpg&fm=jpg" alt="image of map to represent the unity of the world in center of page" style="width:100%;height:10%;" class="img-rounded">
           <div class="carousel-caption">
             <h3></h3>
             <p></p>
           </div>
+        </div>
+
+        <div class="item" id="toursquare">
+          <!-- <button type="button" onclick="tour()"> -->
+          <img src="https://cdn.trolleytours.com/wp-content/uploads/2016/07/trolley-tours-of-key-west.jpg" alt="image of tour bus in center of page - click to take a tour of the app" style="width:100%;height:10%;"class="img-rounded">
+          <div class="carousel-caption">
+            <h3>Take A Tour Of The App</h3>
+            <p></p>
+          </div>
+
         </div>
 
       </div>
+      <!-- Functionality for Intro Tour-->
+      <div id="overlay">
+      <div id="overlaynav">
+        <div id="tourtext">Welcome To The Tour</div>
+        <div id="tourcontdiv"><button class="button button2" id="tourcontroller">Next</button></div>
+      </div>
+      </div>
+      <script>
+      var frame = 0;
+      $("#toursquare").click(()=>{
+
+        document.getElementById("overlay").style.display = "block";
+
+      })
+      $("#tourcontroller").click(()=>{
+        if(frame === 0){
+          $("#tourtext").text("Here We Have the Top Navigation Bar");
+          $(".topnavigation").removeClass("w3-border-grey");
+          $(".topnavigation").addClass("w3-border-red");
+          $(".topnavigation").addClass("current_elt");
+          window.scrollBy(0,800);
+          frame ++;
+        }
+        else if(frame === 1){
+          $("#tourtext").text("Here We Have Our Side Navigation Bar Where You Can Access Your Profile And Progress");
+          window.scrollBy(0,-800);
+          $(".topnavigation").removeClass("current_elt");
+          $(".topnavigation").removeClass("w3-border-red");
+          $(".topnavigation").addClass("w3-border-grey");
+          $("#mySidebar").addClass("current_elt");
+          $("#topnavclicker").click();
+          frame ++;
+        }
+
+        //highlight profile before close
+        else if(frame === 2){
+          $("#tourtext").text("If You Would Like To Check Out Your Profile You Can Click Here");
+          window.scrollBy(0,-800);
+          $("#mySidebar").removeClass("current_elt");
+          $("#side_profile").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 3){
+          $("#tourtext").text("From Here You Can Always Close This Menu");
+          window.scrollBy(0,-800);
+          $("#side_profile").removeClass("current_elt");
+          $("#side_close").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 4){
+          $("#tourtext").text("You Can Also Return Home From Any Part of The App");
+          window.scrollBy(0,-800);
+          $("#side_close").removeClass("current_elt");
+          $("#side_home").addClass("current_elt");
+
+          frame ++;
+        }
+
+
+        //highlight exercises
+        else if(frame === 5){
+          $("#tourtext").text("Check Out All The Available Exercises Right Here");
+          window.scrollBy(0,-800);
+          $("#side_home").removeClass("current_elt");
+          $("#side_exlist").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 6){
+          $("#tourtext").text("You Can Also View Your Achievements Right From Here");
+          window.scrollBy(0,-800);
+          $("#side_exlist").removeClass("current_elt");
+          $("#side_ach").addClass("current_elt");
+
+          frame ++;
+        }
+        //highlight the about us page
+        else if(frame === 7){
+          $("#tourtext").text("If You Would Like To Know More About Us, Click Here");
+          window.scrollBy(0,-800);
+          $("#side_ach").removeClass("current_elt");
+          $("#side_about").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 8){
+          $("#tourtext").text("Lastly You Can Logout Right Here");
+          window.scrollBy(0,-800);
+          $("#side_about").removeClass("current_elt");
+          $("#side_logout").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 9){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The First Activity Here - Take A Psychological Quiz");
+          $("#side_logout").removeClass("current_elt");
+          $("#a_1").addClass("current_elt");
+          sb_close();
+          frame ++;
+        }
+        else if(frame === 10){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Second Activity Here - Practice A Stress Reducing Technique");
+          $("#a_1").removeClass("current_elt");
+          $("#a_2").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 11){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Third Activity Here - Listen To Stress Reducing Music");
+          $("#a_2").removeClass("current_elt");
+          $("#a_3").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 12){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fourth Activity Here - Take A Self-Care Assessment And Find Yourself");
+          $("#a_3").removeClass("current_elt");
+          $("#a_4").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 13){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fifth Activity Here - Do Some Mindful Meditation");
+          $("#a_4").removeClass("current_elt");
+          $("#a_5").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 14){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Sixth Activity Here - Try To Work On Your Breathing");
+          $("#a_5").removeClass("current_elt");
+          $("#a_6").addClass("current_elt");
+          $("#tourcontroller").text("Close Tour");
+          frame ++;
+        }
+        else if(frame === 15){
+          window.scrollBy(0,-2000);
+          $("#a_6").removeClass("current_elt");
+          $("#tourcontroller").text("Next");
+          document.getElementById("overlay").style.display = "none";
+          frame = 0;
+
+        }
+
+      })
+
+      </script>
 
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -74,55 +308,58 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 <!--Intro-->
 <div class="w3-row-padding container w3-bottombar w3-border-grey" style="margin-bottom: 50px;">
       <div class="w3-half w3-hide-small w3-hide-medium" style="margin-right: 120px;">
-      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=architecture-beach-city-1285625.jpg&fm=jpg" class="img-responsive img-rounded"style="width:100%" alt="Image">
+      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?cs=srgb&dl=architecture-beach-city-1285625.jpg&fm=jpg" class="img-responsive img-rounded"style="width:100%" alt="Introduction to app with image of a peaceful serene beach city">
       </div>
       <div class="w3-third w3-hide-medium" >
         <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
         <p class="w3-large"style="margin-bottom:50px">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+          Welcome! We built this app to help you find inner peace and help with the challenges of day-to-day mental health difficulties. We live
+          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have
+          the chance to work on some mental health exercises, gain points, and reach achievement levels as you progress on your journey to a healthier mind.
         </p>
       </div>
       <div class="w3-hide-large w3-hide-small" >
         <h1 class="text-center w3-xxxlarge" style="margin-bottom:30px;margin-top:0px;">Introduction</h1>
         <p class="w3-large"style="margin-bottom:50px">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+          Welcome! We built this app to help you find inner peace and help with the challenges of day-to-day mental health difficulties. We live
+          in a fast paced society, and mental health is largely ignored. We should care for our mind the way we care for our bodies, and with this app you have
+          the chance to work on some mental health exercises, gain points, and reach achievement levels as you progress on your journey to a healthier mind.
         </p>
       </div>
 </div><br>
 <!--end Intro-->
 
 <!--Activity-->
+<div id="activitiesbox">
 <div class="container text-center w3-leftbar w3-border-grey">
   <h1 class="text-left w3-xxxlarge" style="margin-left:30px;margin-bottom: 30px;">Activities</h1>
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="" target="_blank">
-            <img src="https://images.pexels.com/photos/934718/pexels-photo-934718.jpeg?cs=srgb&dl=alone-beach-blue-skies-934718.jpg&fm=jpg" alt="" style="width:100%">
+        <div id="a_1" class="thumbnail">
+          <a href="{{url_for('main.activity4')}}" target="_blank">
+            <img src="https://images.pexels.com/photos/934718/pexels-photo-934718.jpeg?cs=srgb&dl=alone-beach-blue-skies-934718.jpg&fm=jpg" alt="activity one block - image of man on journey. Click here for the first exercise" style="width:100%">
             <div class="caption">
-              <h4>Take a quiz to know your psychological health status</h4>
+              <h4>Take A Quiz To Know Your Psychological Health Status</h4>
             </div>
           </a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
+        <div id="a_2" class="thumbnail">
           <a href="{{url_for('auth.activity1')}}" target="_blank">
-            <img src="https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?cs=srgb&dl=chatting-cups-dog-745045.jpg&fm=jpg" alt="" style="width:100%">
+            <img src="https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?cs=srgb&dl=chatting-cups-dog-745045.jpg&fm=jpg" alt="activity two - click here for a stress taming technique" style="width:100%">
             <div class="caption">
-              <h4>Stress-taming technique</h4>
+              <h4>Stress-Taming Technique</h4>
             </div>
           </a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="" target="_blank">
-            <img src="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?cs=srgb&dl=auto-automotive-blur-1842623.jpg&fm=jpg" alt="" style="width:100%">
+        <div id="a_3" class="thumbnail">
+          <a href="{{url_for('main.activity2')}}" target="_blank">
+            <img src="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?cs=srgb&dl=auto-automotive-blur-1842623.jpg&fm=jpg" alt="activity three - click here for some relaxing music to ease your mind" style="width:100%">
             <div class="caption">
-              <h4>Listening to relaxing music</h4>
+              <h4>Listening To Relaxing Music</h4>
             </div>
           </a>
         </div>
@@ -133,37 +370,38 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 <div class="container text-center w3-leftbar w3-border-grey">
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="" target="_blank">
-            <img src="https://images.pexels.com/photos/1931370/pexels-photo-1931370.jpeg?cs=srgb&dl=animal-cats-cute-1931370.jpg&fm=jpg" alt="" style="width:100%">
+        <div id="a_4" class="thumbnail">
+          <a href="{{url_for('main.activity4')}}" target="_blank">
+            <img src="https://blog.mindvalley.com/wp-content/uploads/2018/01/Self-Love-Techniques-quote.jpg" alt="activity four - click here for the fourth activity" style="width:100%">
             <div class="caption">
-              <h4>Activity#4</h4>
+              <h4>Self-Care Assessment</h4>
             </div>
           </a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="" target="_blank">
-            <img src="https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?cs=srgb&dl=adventure-altitude-backpack-691034.jpg&fm=jpg" alt="" style="width:100%">
+        <div id="a_5" class="thumbnail">
+          <a href="{{url_for('main.activity5')}}" target="_blank">
+            <img src="https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?cs=srgb&dl=adventure-altitude-backpack-691034.jpg&fm=jpg" alt="activity five - click here for the fifth activity" style="width:100%">
             <div class="caption">
-              <h4>Activity#5</h4>
+              <h4>Meditation</h4>
             </div>
           </a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="" target="_blank">
-            <img src="https://images.pexels.com/photos/1659437/pexels-photo-1659437.jpeg?cs=srgb&dl=adventure-alone-cave-1659437.jpg&fm=jpg" alt="" style="width:100%">
+        <div id="a_6" class="thumbnail">
+          <a href="{{url_for('main.activity6')}}" target="_blank">
+            <img src="https://www.optimistdaily.com/wp-content/uploads/2017/04/physed-breathing-superJumbo.jpg" alt="activity six - deep breathing exercise" width="100%">
             <div class="caption">
-              <h4>Activity#6</h4>
+              <h4>Deep Breathing</h4>
             </div>
           </a>
         </div>
       </div>
     </div>
 </div><br>
+</div>
 <!--end activity-->
 </body>
 {% endblock %}

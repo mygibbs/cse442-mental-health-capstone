@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .contact{
+        height: 100%;
+        width: 100%;
+        padding: 100px;
+       text-align: center;
+       font-size: 30px;
+       background: url('https://cdn.lynda.com/static/landing/images/hero/CustomerServiceRepresentative_1200x630-1503428403782.jpg') no-repeat;
+       background-size: 100%;
+   }
+
+    #contact-text{
+        padding:200px;
+        border: 3px black;
+        color: white;
+        transition: transform .2s;
+    }
+
+    #contact-text:hover{
+        transform: scale(1.5);
+        font-size: 40px;
+    }
+
+    
+    
+ 
+</style>
+<body>
+<div class="contact">
+    <div class="img-thing"></div>
+    <p id="contact-text">Contact Us: mjlong2@buffalo.edu</p>
+</div>
+</body>
+{% endblock %}
