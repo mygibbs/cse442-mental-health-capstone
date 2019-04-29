@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
     points = db.Column(db.Integer)
     lastlogin = db.Column(db.Integer)#this will be in ticks(seconds)
     currstreak = db.Column(db.Integer)#min value = 1
+    multiplier = db.Column(db.Float)#multiplier float in the range of [1, 3]
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password, method='sha256')
