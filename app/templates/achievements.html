@@ -16,7 +16,7 @@
      <div class="card-block px-2">
          <h3 id="des1" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(1)">(for testing)</button>
+
   </div>
   <div id="card2" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -25,7 +25,7 @@
      <div class="card-block px-2">
          <h3 id="des2" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(2)">(for testing)</button>
+
   </div>
   <div id="card3" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -34,7 +34,7 @@
      <div class="card-block px-2">
          <h3 id="des3" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(3)">(for testing)</button>
+
   </div>
   <div id="card4" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -43,7 +43,7 @@
      <div class="card-block px-2">
          <h3 id="des4" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(4)">(for testing)</button>
+
   </div>
   <div id="card5" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -52,7 +52,7 @@
      <div class="card-block px-2">
          <h3 id="des5" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(5)">(for testing)</button>
+
   </div>
   <div id="card6" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -61,7 +61,7 @@
      <div class="card-block px-2">
          <h3 id="des6" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(6)">(for testing)</button>
+
   </div>
   <div id="card7" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -70,7 +70,7 @@
      <div class="card-block px-2">
          <h3 id="des7" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(7)">(for testing)</button>
+
   </div>
   <div id="card8" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -79,7 +79,7 @@
      <div class="card-block px-2">
          <h3 id="des8" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(8)">(for testing)</button>
+
   </div>
   <div id="card9" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -88,7 +88,7 @@
      <div class="card-block px-2">
          <h3 id="des9" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(9)">(for testing)</button>
+
   </div>
   <div id="card10" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
@@ -97,7 +97,7 @@
      <div class="card-block px-2">
          <h3 id="des10" class="card-title text-light">Hidden Achievement</h3>
      </div>
-     <button id="unlock" type="button" class="btn btn-primary" onclick="show(10)">(for testing)</button>
+
   </div>
 </div>
 
@@ -139,5 +139,18 @@ function show(val){
   document.getElementById("des" + val).innerHTML = "Reach Level " + acnames[val-1];
   document.getElementById("card" + val).setAttribute("class", "card flex-row flex-wrap bg-info my-2")
 }
+
+
+if({{user.achievement1|int}} == 1){show(1);}
+if({{user.achievement2|int}} == 1){show(2);}
+if({{user.achievement3|int}} == 1){show(3);}
+if({{user.achievement4|int}} == 1){show(4);}
+if({{user.achievement5|int}} == 1){show(5);}
+if({{user.achievement6|int}} == 1){show(6);}
+if({{user.achievement7|int}} == 1){show(7);}
+if({{user.achievement8|int}} == 1){show(8);}
+if({{user.achievement9|int}} == 1){show(9);}
+if({{user.achievement10|int}} == 1){show(10);}
+
 </script>
 {% endblock %}
