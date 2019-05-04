@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='achievements.css') }}">
 
 <div style="padding: 5%;">
   <div>
@@ -8,86 +9,148 @@
       <h5 class="card-title display-4">Achievements</h5>
     </div>
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card1" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac1.png') }}" alt="first row - reach level two achievement card">
+         <img id="img1" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 2</h3>
+         <h3 id="des1" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card2" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac2.png') }}" alt="second row - reach level five achievement card">
+         <img id="img2" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 5</h3>
+         <h3 id="des2" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card3" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac3.png') }}" alt="third row - reach level ten achievement card">
+         <img id="img3" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 10</h3>
+         <h3 id="des3" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card4" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac4.png') }}" alt="fourth row - reach level fifteen achievement card">
+         <img id="img4" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 15</h3>
+         <h3 id="des4" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card5" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac5.png') }}" alt="fifth row - reach level twenty achievement card">
+         <img id="img5" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 20</h3>
+         <h3 id="des5" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card6" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac6.png') }}" alt="sixth row - reach level twenty five achievement card">
+         <img id="img6" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 25</h3>
+         <h3 id="des6" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card7" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac7.png') }}" alt="seventh row - reach level thirty achievement card">
+         <img id="img7" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 30</h3>
+         <h3 id="des7" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card8" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac8.png') }}" alt="eighth row - reach level fourty achievement card">
+         <img id="img8" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 40</h3>
+         <h3 id="des8" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card9" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac9.png') }}" alt="ninth row - reach level fifty achievement card">
+         <img id="img9" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
      <div class="card-block px-2">
-         <h3 class="card-title text-light">Reach Level 50</h3>
+         <h3 id="des9" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
-  <div class="card flex-row flex-wrap bg-secondary my-2">
+  <div id="card10" class="card flex-row flex-wrap bg-secondary my-2">
      <div class="card-header border-0">
-         <img src="{{ url_for('static', filename='ac10.png') }}" alt="last row - reach level one hundred achievement card, this is the ultimate achievement">
+         <img id="img10" src="{{ url_for('static', filename='hidden.png') }}">
      </div>
-     <div class="card-block px-2 bg-secondary my-2">
-         <h3 class="card-title text-light">Reach Level 100</h3>
+     <div class="card-block px-2">
+         <h3 id="des10" class="card-title text-light">Hidden Achievement</h3>
      </div>
+
   </div>
+</div>
+
+<script>
+var acnames = [2, 5, 10, 15, 20, 25, 30, 40, 50, 100];
+function show(val){
+  switch(val){
+    case 1:
+      document.getElementById("img1").src="{{ url_for('static', filename='ac1.png') }}";
+      break;
+    case 2:
+      document.getElementById("img2").src="{{ url_for('static', filename='ac2.png') }}";
+      break;
+    case 3:
+      document.getElementById("img3").src="{{ url_for('static', filename='ac3.png') }}";
+      break;
+    case 4:
+      document.getElementById("img4").src="{{ url_for('static', filename='ac4.png') }}";
+      break;
+    case 5:
+      document.getElementById("img5").src="{{ url_for('static', filename='ac5.png') }}";
+      break;
+    case 6:
+      document.getElementById("img6").src="{{ url_for('static', filename='ac6.png') }}";
+      break;
+    case 7:
+      document.getElementById("img7").src="{{ url_for('static', filename='ac7.png') }}";
+      break;
+    case 8:
+      document.getElementById("img8").src="{{ url_for('static', filename='ac8.png') }}";
+      break;
+    case 9:
+      document.getElementById("img9").src="{{ url_for('static', filename='ac9.png') }}";
+      break;
+    case 10:
+      document.getElementById("img10").src="{{ url_for('static', filename='ac10.png') }}";
+      break;
+  }
+  document.getElementById("des" + val).innerHTML = "Reach Level " + acnames[val-1];
+  document.getElementById("card" + val).setAttribute("class", "card flex-row flex-wrap bg-info my-2")
+}
 
 
+if({{user.achievement1|int}} == 1){show(1);}
+if({{user.achievement2|int}} == 1){show(2);}
+if({{user.achievement3|int}} == 1){show(3);}
+if({{user.achievement4|int}} == 1){show(4);}
+if({{user.achievement5|int}} == 1){show(5);}
+if({{user.achievement6|int}} == 1){show(6);}
+if({{user.achievement7|int}} == 1){show(7);}
+if({{user.achievement8|int}} == 1){show(8);}
+if({{user.achievement9|int}} == 1){show(9);}
+if({{user.achievement10|int}} == 1){show(10);}
+
+</script>
 {% endblock %}

@@ -10,12 +10,56 @@ import time
 @bp.route('/index')
 @login_required
 def index():
+
+    user = current_user
+    if user.achievement1 is None:
+        user.achievement1 = 0
+        user.achievement2 = 0
+        user.achievement3 = 0
+        user.achievement4 = 0
+        user.achievement5 = 0
+        user.achievement6 = 0
+        user.achievement7 = 0
+        user.achievement8 = 0
+        user.achievement9 = 0
+        user.achievement10 = 0
+
+    db.session.add(user)
+    db.session.commit()
     return render_template('index.html', title='Home', user=current_user)
 
 
 @bp.route('/achievements')
 @login_required
 def achievements():
+    return render_template('achievements.html', title='Achievements', user=current_user)
+
+
+@bp.route('/update_achievements', methods=['POST'])
+@login_required
+def update_achievements():
+    user = current_user
+    if (user.points//1000 + 1) == 2:
+        user.achievement1 = 1;
+    if (user.points//1000 + 1) == 5:
+        user.achievement2 = 1;
+    if (user.points//1000 + 1) == 10:
+        user.achievement3 = 1;
+    if (user.points//1000 + 1) == 15:
+        user.achievement4 = 1;
+    if (user.points//1000 + 1) == 20:
+        user.achievement5 = 1;
+    if (user.points//1000 + 1) == 25:
+        user.achievement6 = 1;
+    if (user.points//1000 + 1) == 30:
+        user.achievement7 = 1;
+    if (user.points//1000 + 1) == 40:
+        user.achievement8 = 1;
+    if (user.points//1000 + 1) == 50:
+        user.achievement9 = 1;
+    if (user.points//1000 + 1) == 100:
+        user.achievement10 = 1;
+    db.session.commit()
     return render_template('achievements.html', title='Achievements', user=current_user)
 
 
@@ -54,7 +98,7 @@ def update_lastlogin():
     currtime = time.time()
     lastlogin = user.lastlogin
     multiplier = user.multiplier
-    	
+
     if user.lastlogin is None:#first time login setup
         user.lastlogin = currtime
         user.currstreak = 1
@@ -62,7 +106,7 @@ def update_lastlogin():
         db.session.add(user)
         db.session.commit()
         return render_template('index.html', title='Home', user=current_user)
-    
+
     if currtime-lastlogin > 86400 and currtime-lastlogin < 172800:
         #its been more than 24 hours and less than 48 hours since last login, re-up (or reset if sunday)
         localtime = time.localtime()
@@ -73,10 +117,10 @@ def update_lastlogin():
             db.session.add(user)
             db.session.commit()
             return render_template('index.html', title='Home', user=current_user)
-        
+
         user.currstreak = user.currstreak+1 #up streak by 1
         user.lastlogin = currtime #set new lastlogin, user needs to sign in again between 24 to 48 hours from this point to maintain streak
-        
+
         if user.currstreak == 2:
             user.multiplier = 1.10
         if user.currstreak == 3:
@@ -89,11 +133,11 @@ def update_lastlogin():
             user.multiplier == 2.75
         if user.currstreak == 7:
             user.multiplier = 3.00
-        
+
         db.session.add(user)
         db.session.commit()
         return render_template('index.html', title='Home', user=current_user)
-        
+
     elif currtime-lastlogin > 172800:#user didnt maintain streak, reset
         user.currstreak = 1
         user.multiplier = 1.00
@@ -101,7 +145,7 @@ def update_lastlogin():
         db.session.add(user)
         db.session.commit()
         return render_template('index.html', title='Home', user=current_user)
-        
+
     return render_template('index.html', title='Home', user=current_user)
 
 @bp.route('/activity4')
