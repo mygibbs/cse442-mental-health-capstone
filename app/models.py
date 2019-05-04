@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
     points = db.Column(db.Integer)
     lastlogin = db.Column(db.Integer)#this will be in ticks(seconds)
     currstreak = db.Column(db.Integer)#min value = 1
+    multiplier = db.Column(db.Float)#multiplier float in the range of [1, 3]
     achievement1 = db.Column(db.Integer)
     achievement2 = db.Column(db.Integer)
     achievement3 = db.Column(db.Integer)
@@ -20,7 +21,7 @@ class User(UserMixin, db.Model):
     achievement7 = db.Column(db.Integer)
     achievement8 = db.Column(db.Integer)
     achievement9 = db.Column(db.Integer)
-    achievement10 = db.Column(db.Integer)
+    achievement10 = db.Column(db.Integer)    
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password, method='sha256')

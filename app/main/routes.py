@@ -97,24 +97,50 @@ def update_lastlogin():
     user = current_user
     currtime = time.time()
     lastlogin = user.lastlogin
+    multiplier = user.multiplier
 
     if user.lastlogin is None:#first time login setup
         user.lastlogin = currtime
         user.currstreak = 1
+        user.multiplier = 1.00
         db.session.add(user)
         db.session.commit()
         return render_template('index.html', title='Home', user=current_user)
 
     if currtime-lastlogin > 86400 and currtime-lastlogin < 172800:
-        #its been more than 24 hours and less than 48 hours since last login, re-up
+        #its been more than 24 hours and less than 48 hours since last login, re-up (or reset if sunday)
+        localtime = time.localtime()
+        if localtime.tm_wday == 6:#reset on Sundays. tm_wday has value in [0,6] where 0 is monday and 6 is sunday
+            user.currstreak = 1
+            user.multiplier = 1.00
+            user.lastlogin = currtime
+            db.session.add(user)
+            db.session.commit()
+            return render_template('index.html', title='Home', user=current_user)
+
         user.currstreak = user.currstreak+1 #up streak by 1
         user.lastlogin = currtime #set new lastlogin, user needs to sign in again between 24 to 48 hours from this point to maintain streak
+
+        if user.currstreak == 2:
+            user.multiplier = 1.10
+        if user.currstreak == 3:
+            user.multiplier = 1.50
+        if user.currstreak == 4:
+            user.multiplier = 2.00
+        if user.currstreak == 5:
+            user.multiplier = 2.50
+        if user.currstreak == 6:
+            user.multiplier == 2.75
+        if user.currstreak == 7:
+            user.multiplier = 3.00
+
         db.session.add(user)
         db.session.commit()
         return render_template('index.html', title='Home', user=current_user)
 
     elif currtime-lastlogin > 172800:#user didnt maintain streak, reset
         user.currstreak = 1
+        user.multiplier = 1.00
         user.lastlogin = currtime#set new lastlogin, user needs to sign in again between 24 to 48 hours from this point to maintain streak
         db.session.add(user)
         db.session.commit()
