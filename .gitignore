@@ -100,3 +100,5 @@ logs/
 
 # Database file
 app.db
+
+# Instance based config
