@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% block content %}
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<title>Weekly Quiz</title>
+</head>
+
+<SCRIPT LANGUAGE="JavaScript">
+function scorequiz(form) {
+  //$.post('/detect_status');
+ var list=0
+ if(form.Q1.value!=null  &&  form.Q1.value=="T") {list=list+20}
+ if(form.Q2.value!=null  &&  form.Q2.value=="T") {list=list+20}
+ if(form.Q3.value!=null  &&  form.Q3.value=="T") {list=list+20}
+ if(form.Q4.value!=null  &&  form.Q4.value=="T") {list=list+20}
+ if(form.Q5.value!=null  &&  form.Q5.value=="T") {list=list+20}
+ form.SCORE.value =eval(list)
+
+ if (form.SCORE.value<=80){
+ok="Please try again"
+alert(ok)}
+else{
+  getPoints(1000);
+  $.post('/update_quiz_status');
+  ok="You passed, Congratulations"
+  alert(ok)
+  window.close();
+window.opener.location.reload();
+}
+}
+
+function updateAchievement(){
+  $.post('/update_achievements');
+}
+
+var updated = {{points|int}};
+var actualPoint = {{points|int}};
+function getPoints(p){
+  updated += p;
+  actualPoint += p;
+  console.log(actualPoint);
+  updated = updated % 1000;
+  var updatedPercent = (updated/1000) * 100;
+  $('.indexprog').css('width', updatedPercent +'%');
+  $('.indexprog').text("XP: " + updated + "/1000");
+  $('.lvl').text("Level " + Math.floor((actualPoint/1000 + 1)));
+  $.post('/update_points',{data: actualPoint});
+  updateAchievement();
+}
+
+
+function clearquiz(form) {
+ var list=0
+ form.Q1.value="?"
+ form.Q2.value="?"
+ form.Q3.value="?"
+ form.Q4.value="?"
+ form.Q5.value="?"
+ form.SCORE.value =eval(list)
+}
+
+</Script>
+
+<head>
+<h1 align="center" style="padding-top:30px">Weekly Quiz</h1>
+</head>
+<body>
+
+<table width="75%" border="0" align="center">
+  <tr>
+    <td>
+      <form name="quiz1"
+  method="post" enctype="text/plain"
+ onLoad="clearquiz(this.form)" style="padding-bottom:40px" >
+
+  <hr>
+        1. Depression can be caused by:
+        <!--
+        There is no single cause of depression, but psychological, biological and environmental factors may all contribute to its development.
+
+        Life events may or may not be a trigger. Psychological causes, like thought patterns, may play a role or make it worse. Biology, or one's genes and an imbalance of brain chemicals, also contributes.
+
+        Depression is a serious illness and not simply part of one's personality.
+      -->
+        <ol>
+          <input type="radio" name="Q1" value="T">
+          A. Life Events<br>
+          <input type="radio" name="Q1" value="W11">
+          B. Personality<br>
+          <input type="radio" name="Q1" value="W12">
+          C. Dwelling on negative thoughts
+        </ol>
+  <hr>
+        2. Depression Symptoms May Include:
+        <!--
+        All of the above may be signs of depression.
+
+        Other symptoms that may occur are:
+
+        physical slowing or agitation
+        feelings of guilt, worthlessness, hopelessness and emptiness
+        recurrent thoughts of death or suicide
+        persistent physical symptoms that do not respond to treatment such as headaches, digestive disorders and chronic pain
+        When several of these symptoms of depressive illness occur at the same time, last longer than two weeks and interfere with ordinary functioning, professional treatment is needed.
+      -->
+        <ol>
+          <input type="radio" name="Q2" value="W21">
+            A. Persistently sad or irritable mood<br>
+
+          <input type="radio" name="Q2" value="W22">
+            B. Pronounced changes in sleep, appetite and energy<br>
+
+          <input type="radio" name="Q2" value="W23">
+            C. Difficulty thinking, concentrating and remembering<br>
+
+          <input type="radio" name="Q2" value="W24">
+            D. Lack of interest in or please from activities that were once enjoyed<br>
+
+          <input type="radio" name="Q2" value="T">
+            E. All of the above may be signs
+        </ol>
+
+    <hr>
+        3. Medication used for treating depression is addictive and prevents appropriate feelings
+        <!--
+        The medication used for treating depression is not addictive.
+
+        Addiction means that the human body "craves" the medication, develops tolerance to it (meaning it needs more to have the same effect) and this does not occur with the use of antidepressants.
+
+        The medications should help prevent the extremes that make it difficult to deal with feelings effectively, but the medications will not prevent you from feeling appropriate feelings or sadness.
+      -->
+        <ol>
+          <input type="radio" name="Q3" value="W31">
+          A. True<br>
+
+          <input type="radio" name="Q3" value="T">
+          B. False<br>
+
+
+        </ol>
+
+    <hr>
+        4.The body's response to stress occurs in 3 stages; what are they in order?
+        <ol>
+          <input type="radio" name="Q4" value="W41">
+          A. Alarm, Exhaustion, Resistance<br>
+
+          <input type="radio" name="Q4" value="W42">
+          B. Resistance, Alarm, Exhaustion<br>
+          <input type="radio" name="Q4" value="W43">
+          C. Exhaustion, Resistance, Alarm<br>
+          <input type="radio" name="Q4" value="T">
+          D. Alarm, Resistance, Exhaustion
+
+        </ol>
+
+      <hr>
+        5. What is happenning to your body during the alarm stage of stress?
+        <ol>
+          <input type="radio" name="Q5" value="W51">
+          A. Your body adapts to the stressor <br>
+
+          <input type="radio" name="Q5" value="W52">
+          B. Adrenaline is released and breathing speeds up<br>
+
+          <input type="radio" name="Q5" value="W53">
+          C. Muscles tense and blood pressure increases<br>
+
+          <input type="radio" name="Q5" value="T">
+          D. Both B and C
+
+        </ol>
+
+        <hr>
+        <input type="button" name="submit" value="Submit" onClick=scorequiz(this.form) class="pt9">
+        <input type="reset" name="reset" value="Try again" onClick=clearquiz(this.form) class="pt9"><br>
+        <hr>
+        Your Score is:
+       <input  name="SCORE" type="text" class="pt9">
+      </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</html>
+{% endblock %}

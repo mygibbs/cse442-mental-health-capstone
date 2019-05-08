@@ -15,6 +15,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 .title_font{
  font-family: "Tangerine", serif;
 }
+.pointer {cursor: pointer;}
 #overlay {
   position: fixed;
   display: none;
@@ -28,6 +29,9 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   z-index: 2;
   cursor: pointer;
 }
+#a_1{
+  z-index: 2;
+}
 #overlaynav{
   position: absolute;
   top: 50%;
@@ -39,6 +43,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 }
 #tourtext{
   font-size: 50px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: white;
 }
 #tourcontdiv{
@@ -70,6 +75,14 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   border: 2px solid #008CBA;
 }
 </style>
+
+<script>
+function update_lastlogin(){
+  $.post('/update_lastlogin');
+}
+
+window.onload = update_lastlogin;
+</script>
 
 <body  style="background-color:white;overflow:scroll">
 
@@ -105,10 +118,10 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           </div>
         </div>
 
-        <div class="item">
+        <div class="item" id=weeklyQuiz onclick="openwin()">
           <img src="https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?cs=srgb&dl=background-camera-close-up-1464143.jpg&fm=jpg" alt="image of map to represent the unity of the world in center of page" style="width:100%;height:10%;" class="img-rounded">
-          <div class="carousel-caption">
-            <h3></h3>
+          <div class="carousel-caption pointer">
+            <h3>Take A Weekly Quiz</h3>
             <p></p>
           </div>
         </div>
@@ -140,6 +153,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
       })
       $("#tourcontroller").click(()=>{
         if(frame === 0){
+          sb_close();
           $("#tourtext").text("Here We Have the Top Navigation Bar");
           $(".topnavigation").removeClass("w3-border-grey");
           $(".topnavigation").addClass("w3-border-red");
@@ -167,15 +181,41 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
           frame ++;
         }
+        //adding in handling for the multiplier and streaks
         else if(frame === 3){
-          $("#tourtext").text("From Here You Can Always Close This Menu");
+          $("#tourtext").text("Here You Can See The Progress Bar Which Tracks Your Evolution");
           window.scrollBy(0,-800);
           $("#side_profile").removeClass("current_elt");
-          $("#side_close").addClass("current_elt");
+          $("#progbar").addClass("current_elt");
 
           frame ++;
         }
         else if(frame === 4){
+          $("#tourtext").text("Here You Can See Your Current Level");
+          window.scrollBy(0,-800);
+          $("#progbar").removeClass("current_elt");
+          $("#level").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 5){
+          $("#tourtext").text("Here You Can See Your Multiplier And Streaks");
+          window.scrollBy(0,-800);
+          $("#level").removeClass("current_elt");
+          $("#side_streakinfo").addClass("current_elt");
+
+          frame ++;
+        }
+
+        else if(frame === 6){
+          $("#tourtext").text("From Here You Can Always Close This Menu");
+          window.scrollBy(0,-800);
+          $("#side_streakinfo").removeClass("current_elt");
+          $("#side_close").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 7){
           $("#tourtext").text("You Can Also Return Home From Any Part of The App");
           window.scrollBy(0,-800);
           $("#side_close").removeClass("current_elt");
@@ -186,7 +226,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
 
         //highlight exercises
-        else if(frame === 5){
+        else if(frame === 8){
           $("#tourtext").text("Check Out All The Available Exercises Right Here");
           window.scrollBy(0,-800);
           $("#side_home").removeClass("current_elt");
@@ -194,7 +234,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
           frame ++;
         }
-        else if(frame === 6){
+        else if(frame === 9){
           $("#tourtext").text("You Can Also View Your Achievements Right From Here");
           window.scrollBy(0,-800);
           $("#side_exlist").removeClass("current_elt");
@@ -203,7 +243,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
           frame ++;
         }
         //highlight the about us page
-        else if(frame === 7){
+        else if(frame === 10){
           $("#tourtext").text("If You Would Like To Know More About Us, Click Here");
           window.scrollBy(0,-800);
           $("#side_ach").removeClass("current_elt");
@@ -211,7 +251,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
           frame ++;
         }
-        else if(frame === 8){
+        else if(frame === 11){
           $("#tourtext").text("Lastly You Can Logout Right Here");
           window.scrollBy(0,-800);
           $("#side_about").removeClass("current_elt");
@@ -219,17 +259,57 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 
           frame ++;
         }
-        else if(frame === 9){
-          $("#tourtext").text("Here You Can Access Several Activities");
-          $("#activitiesbox").addClass("current_elt");
-          sb_close();
-          $("#side_logout").removeClass("current_elt");
-          $("#tourcontroller").text("Close Tour");
+        else if(frame === 12){
           window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The First Activity Here - Take A Psychological Quiz");
+          $("#side_logout").removeClass("current_elt");
+          $("#a_1").addClass("current_elt");
+          sb_close();
           frame ++;
         }
-        else if(frame === 10){
-          $("#activitiesbox").removeClass("current_elt");
+        else if(frame === 13){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Second Activity Here - Practice A Stress Reducing Technique");
+          $("#a_1").removeClass("current_elt");
+          $("#a_2").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 14){
+          window.scrollTo(0,1140);
+          $("#tourtext").text("Check Out The Third Activity Here - Listen To Stress Reducing Music");
+          $("#a_2").removeClass("current_elt");
+          $("#a_3").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 15){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fourth Activity Here - Take A Self-Care Assessment And Find Yourself");
+          $("#a_3").removeClass("current_elt");
+          $("#a_4").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 16){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Fifth Activity Here - Do Some Mindful Meditation");
+          $("#a_4").removeClass("current_elt");
+          $("#a_5").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 17){
+          window.scrollTo(0,1500);
+          $("#tourtext").text("Check Out The Sixth Activity Here - Try To Work On Your Breathing");
+          $("#a_5").removeClass("current_elt");
+          $("#a_6").addClass("current_elt");
+          $("#tourcontroller").text("Close Tour");
+          frame ++;
+        }
+        else if(frame === 18){
+          window.scrollBy(0,-2000);
+          $("#a_6").removeClass("current_elt");
           $("#tourcontroller").text("Next");
           document.getElementById("overlay").style.display = "none";
           frame = 0;
@@ -283,8 +363,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
   <h1 class="text-left w3-xxxlarge" style="margin-left:30px;margin-bottom: 30px;">Activities</h1>
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('main.activity4')}}" target="_blank">
+        <div id="a_1" class="thumbnail">
+          <a href="{{url_for('activities.activity4')}}" target="_blank">
             <img src="https://images.pexels.com/photos/934718/pexels-photo-934718.jpeg?cs=srgb&dl=alone-beach-blue-skies-934718.jpg&fm=jpg" alt="activity one block - image of man on journey. Click here for the first exercise" style="width:100%">
             <div class="caption">
               <h4>Take A Quiz To Know Your Psychological Health Status</h4>
@@ -293,8 +373,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('auth.activity1')}}" target="_blank">
+        <div id="a_2" class="thumbnail">
+          <a href="{{url_for('activities.activity1')}}" target="_blank">
             <img src="https://images.pexels.com/photos/745045/pexels-photo-745045.jpeg?cs=srgb&dl=chatting-cups-dog-745045.jpg&fm=jpg" alt="activity two - click here for a stress taming technique" style="width:100%">
             <div class="caption">
               <h4>Stress-Taming Technique</h4>
@@ -303,8 +383,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('main.activity2')}}" target="_blank">
+        <div id="a_3" class="thumbnail">
+          <a href="{{url_for('activities.activity2')}}" target="_blank">
             <img src="https://images.pexels.com/photos/1842623/pexels-photo-1842623.jpeg?cs=srgb&dl=auto-automotive-blur-1842623.jpg&fm=jpg" alt="activity three - click here for some relaxing music to ease your mind" style="width:100%">
             <div class="caption">
               <h4>Listening To Relaxing Music</h4>
@@ -318,8 +398,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 <div class="container text-center w3-leftbar w3-border-grey">
   <div class="row">
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('main.activity4')}}" target="_blank">
+        <div id="a_4" class="thumbnail">
+          <a href="{{url_for('activities.activity4')}}" target="_blank">
             <img src="https://blog.mindvalley.com/wp-content/uploads/2018/01/Self-Love-Techniques-quote.jpg" alt="activity four - click here for the fourth activity" style="width:100%">
             <div class="caption">
               <h4>Self-Care Assessment</h4>
@@ -328,8 +408,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('main.activity5')}}" target="_blank">
+        <div id="a_5" class="thumbnail">
+          <a href="{{url_for('activities.activity5')}}" target="_blank">
             <img src="https://images.pexels.com/photos/691034/pexels-photo-691034.jpeg?cs=srgb&dl=adventure-altitude-backpack-691034.jpg&fm=jpg" alt="activity five - click here for the fifth activity" style="width:100%">
             <div class="caption">
               <h4>Meditation</h4>
@@ -338,8 +418,8 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
         </div>
       </div>
       <div class="col-md-4">
-        <div class="thumbnail">
-          <a href="{{url_for('main.activity6')}}" target="_blank">
+        <div id="a_6" class="thumbnail">
+          <a href="{{url_for('activities.activity6')}}" target="_blank">
             <img src="https://www.optimistdaily.com/wp-content/uploads/2017/04/physed-breathing-superJumbo.jpg" alt="activity six - deep breathing exercise" width="100%">
             <div class="caption">
               <h4>Deep Breathing</h4>
@@ -351,5 +431,16 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 </div><br>
 </div>
 <!--end activity-->
+<script>
+function openwin(){
+  if ({{current_user.quiz_taken|int}}==1){
+    window.open ("{{url_for('main.weeklyquizDone')}}", "newwindow", "height=600, width=700,top=80,left=100, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, status=no");
+  }
+  else
+  window.open ("{{url_for('main.weeklyquiz')}}", "newwindow", "height=700, width=800,top=80,left=100, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, status=no");
+
+
+}
+</script>
 </body>
 {% endblock %}
