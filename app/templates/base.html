@@ -106,52 +106,36 @@
 
 <body  style="background-color:white">
   <!--top menu-->
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-fixed-top" style="border-bottom:7px solid #336666;background-color:#336666;">
 
-  <header class="topnavigation w3-hide-small w3-hide-medium w3-container w3-top w3-white w3-xlarge w3-bottombar w3-border-grey" style="height:11%;">
-    {% if current_user.is_anonymous %}
-    <a href="" class="w3-hide-small w3-white w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font">
-      <i class="material-icons topNavItem">person</i>
-      Welcome to Mental Health App&nbsp;&nbsp;</a>
-    <a href="javascript:void(0)" class="w3-right w3-btn w3-white topNavItem w3-hide-small" onclick="sb_open()">
-      <i class="material-icons topNavItem">menu</i>
+      <button class="btn w3-xlarge w3-left w3-text-black title_font w3-hover-opacity">
+        <a href="{{url_for('main.profile')}}" class="w3-text-white" style="text-decoration:none">
+        <i class="material-icons topNavItem">person</i>
+        &nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}!&nbsp;&nbsp;
+      {% if current_user.currstreak is none %}
+      Current Streak: 1 day(s)!&nbsp;&nbsp;
+      {% else %}
+      Current Streak: {{ current_user.currstreak }} day(s)!&nbsp;&nbsp;
+      {%endif%}
     </a>
-    {% else %}
-    <!--person button-->
-    <button class="w3-btn w3-xlarge w3-left w3-text-black topNavItem title_font w3-hide-small"  href="{{url_for('main.profile')}}">
-      <i class="material-icons topNavItem">person</i>
-      &nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}!&nbsp;&nbsp;
-
-    </button>
-    <!--end person botton-->
-
-    <!--side menu botton-->
-    <a id="topnavclicker" href="javascript:void(0)" class="w3-hide-small w3-right w3-btn w3-white topNavItem" onclick="sb_open()">
-      <i class="material-icons topNavItem">menu</i>
-    </a>
-    <!--end side menu botton-->
-
-
-<span class="w3-xlarge w3-right w3-text-black topNavItem title_font w3-hide-small">|</span>
-
-    {%endif%}
-    <!-- topmenu on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+      </button>
+      <button class="btn w3-right ml-auto w3-border-left w3-hover-opacity">
+      <a id="topnavclicker" href="javascript:void(0)" class="w3-text-white" onclick="sb_open()">
+        <i class="material-icons topNavItem">menu</i>
+      </a>
+       </button>
+  </nav>
   </header>
+
 
 <!--end top menu-->
 
 <!-- Top menu on small screens -->
-<header class="topnavigation w3-bar w3-top w3-hide-large w3-white w3-xlarge w3-bottombar w3-border-grey">
-  {% if current_user.is_anonymous %}
-<div class="w3-bar-item w3-padding-24 w3-wide">Welcome</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="sb_open()"><i class="fa fa-bars"></i></a>
-  {% else %}
-  <div class="w3-bar-item w3-padding-24 w3-wide">&nbsp;&nbsp;Hi,&nbsp;{{ current_user.username }}</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="sb_open()"><i class="fa fa-bars"></i></a>
-  {%endif%}
-</header>
+
 
   <!-- Sidebar-->
-  <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:10111;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
     <div id="side_profile" style="background-color: #627f50;"><a href="{{url_for('main.profile')}}" onclick="sb_close()" class="w3-bar-item w3-center w3-padding-16"> <img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%; max-width: 150px;"/></a></div>
 	<div class="position-relative" style="background-color: #627f50;">
 		<div class="position-relative" style="padding-top: 10px;">
@@ -177,7 +161,7 @@
 			{%endif%}
 		</div>
 	</div>
-	
+
     <div id="side_home"><a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a></div>
 	<div id="side_exlist"><a href="{{url_for('activities.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a></div>
     <div id="side_ach"><a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a></div>
@@ -186,7 +170,7 @@
         <a href="{{url_for('auth.login')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
     {% else %}
     <div id="side_logout"><a href="{{url_for('auth.logout')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a></div>
-	
+
 	<div id="side_close"><a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a></div>
 
 
@@ -207,9 +191,9 @@
     {% endwith %}
     {% block content %}{% endblock %}
     <!-- Footer -->
-      <footer class="tds-footer">
-        <a href="{{url_for('main.contact')}}" class="link-tds">Contact us</a>
-      </footer>
+    <footer class="tds-footer w3-text-black" style="border-bottom:10px solid #336666;background-color:#336666;" >
+      <a href="{{url_for('main.contact')}}" class="link-tds w3-text-white">Contact us</a>
+    </footer>
     <!--end footer-->
 
   <script>
@@ -230,5 +214,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- end of JQuery, AJAX, Bootstrap stuff, don't delete -->
 </body>
-
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c98026c2355556d"></script>
 </html>

@@ -40,20 +40,21 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
-    points = db.Column(db.Integer)
+    points = db.Column(db.Integer, default=0)
     lastlogin = db.Column(db.Integer)#this will be in ticks(seconds)
     currstreak = db.Column(db.Integer)#min value = 1
     multiplier = db.Column(db.Float)#multiplier float in the range of [1, 3]
-    achievement1 = db.Column(db.Integer)
-    achievement2 = db.Column(db.Integer)
-    achievement3 = db.Column(db.Integer)
-    achievement4 = db.Column(db.Integer)
-    achievement5 = db.Column(db.Integer)
-    achievement6 = db.Column(db.Integer)
-    achievement7 = db.Column(db.Integer)
-    achievement8 = db.Column(db.Integer)
-    achievement9 = db.Column(db.Integer)
-    achievement10 = db.Column(db.Integer)
+    achievement1 = db.Column(db.Integer, default=0)
+    achievement2 = db.Column(db.Integer, default=0)
+    achievement3 = db.Column(db.Integer, default=0)
+    achievement4 = db.Column(db.Integer, default=0)
+    achievement5 = db.Column(db.Integer, default=0)
+    achievement6 = db.Column(db.Integer, default=0)
+    achievement7 = db.Column(db.Integer, default=0)
+    achievement8 = db.Column(db.Integer, default=0)
+    achievement9 = db.Column(db.Integer, default=0)
+    achievement10 = db.Column(db.Integer, default=0)
+    quiz_taken = db.Column(db.Integer, default=0)
 
     def to_dict(self, include_email=False):
         data = {
