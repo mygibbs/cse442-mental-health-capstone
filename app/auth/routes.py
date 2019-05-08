@@ -59,11 +59,6 @@ def about():
     return render_template('about.html',user=current_user, points = current_user.points)
 
 
-@bp.route('/activity1')
-def activity1():
-    return render_template('activity1.html')
-
-
 @bp.route('/profile')
 def profile():
     if current_user.is_authenticated:
