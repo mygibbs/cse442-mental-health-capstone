@@ -69,12 +69,6 @@ def profile():
     return render_template('profile.html', title='Profile', user=current_user)
 
 
-@bp.route('/activity1')
-@login_required
-def activity1():
-    return render_template('activity1.html', title='Activity 1', user=current_user, points=current_user.points)
-
-
 @bp.route('/update_lastlogin', methods=['POST'])
 @login_required
 def update_lastlogin():

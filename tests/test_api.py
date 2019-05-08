@@ -9,7 +9,7 @@ from flask import g, abort
 from app.api.auth import token_auth
 
 
-def test_test_exercises(client):
+def test_exercises(client):
     response = client.get('/exercises', follow_redirects=True)
     assert response.status_code == 200
 
