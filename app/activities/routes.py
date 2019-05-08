@@ -4,11 +4,10 @@ from app.activities import bp
 from app import db
 
 
-
 @bp.route('/exercises')
 @login_required
 def exercises():
-    return render_template('exercises.html', title='Exercises')
+    return render_template('exercises.html', title='Exercises', user=current_user)
 
 
 @bp.route('/activity4')

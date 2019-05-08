@@ -146,7 +146,7 @@
     <div id="side_profile"><a href="{{url_for('main.profile')}}" onclick="sb_close()" class="w3-bar-item w3-center w3-padding-16"> <img src="{{ url_for('static', filename='defaultProfile.png') }}" style="border-radius: 50%; max-width: 150px;"/></a></div>
 	<div id="side_close"><a href="javascript:void()" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-32">Close menu</a></div>
     <div id="side_home"><a href="{{url_for('main.index')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a></div>
-	<div id="side_exlist"><a href="{{url_for('main.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a></div>
+	<div id="side_exlist"><a href="{{url_for('activities.exercises')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">All Exercises</a></div>
     <div id="side_ach"><a href="{{url_for('main.achievements')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Achievements</a></div>
     <div id="side_about"><a href="{{url_for('auth.about')}}" onclick="sb_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About us</a></div>
     {% if current_user.is_anonymous %}

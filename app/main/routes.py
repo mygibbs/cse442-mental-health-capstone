@@ -63,12 +63,6 @@ def update_achievements():
     return render_template('achievements.html', title='Achievements', user=current_user)
 
 
-@bp.route('/exercises')
-@login_required
-def exercises():
-    return render_template('exercises.html', title='Exercises', user=current_user)
-
-
 @bp.route('/profile')
 @login_required
 def profile():
