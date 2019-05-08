@@ -102,3 +102,4 @@ logs/
 app.db
 
 # Instance based config
+flask.cfg
