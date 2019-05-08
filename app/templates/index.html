@@ -15,6 +15,7 @@ h1,h2,h3,h4,h5 {color:#000!important;font-style:normal;}
 .title_font{
  font-family: "Tangerine", serif;
 }
+.pointer {cursor: pointer;}
 #overlay {
   position: fixed;
   display: none;
@@ -117,10 +118,10 @@ window.onload = update_lastlogin;
           </div>
         </div>
 
-        <div class="item">
+        <div class="item" id=weeklyQuiz onclick="openwin()">
           <img src="https://images.pexels.com/photos/1464143/pexels-photo-1464143.jpeg?cs=srgb&dl=background-camera-close-up-1464143.jpg&fm=jpg" alt="image of map to represent the unity of the world in center of page" style="width:100%;height:10%;" class="img-rounded">
-          <div class="carousel-caption">
-            <h3></h3>
+          <div class="carousel-caption pointer">
+            <h3>Take A Weekly Quiz</h3>
             <p></p>
           </div>
         </div>
@@ -430,5 +431,16 @@ window.onload = update_lastlogin;
 </div><br>
 </div>
 <!--end activity-->
+<script>
+function openwin(){
+  if ({{current_user.quiz_taken|int}}==1){
+    window.open ("{{url_for('main.weeklyquizDone')}}", "newwindow", "height=600, width=700,top=80,left=100, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, status=no");
+  }
+  else
+  window.open ("{{url_for('main.weeklyquiz')}}", "newwindow", "height=700, width=800,top=80,left=100, toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=no, status=no");
+
+
+}
+</script>
 </body>
 {% endblock %}
