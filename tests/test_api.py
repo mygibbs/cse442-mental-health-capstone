@@ -14,12 +14,12 @@ def test_exercises(client):
     assert response.status_code == 200
 
 
-@bp.route('client')
-@token_auth.login_required
-def test_get_user(client, id):
-    id = 0
-    res = client.get('/users/' + id)
-    assert jsonify(res.query.get_or_404(id).to_dict()) != 404
+# @bp.route('client')
+# @token_auth.login_required
+# def test_get_user(client, id):
+#     id = 0
+#     res = client.get('/users/' + id)
+#     assert jsonify(res.query.get_or_404(id).to_dict()) != 404
 
 
 # @bp.route('/users', methods=['GET'])
