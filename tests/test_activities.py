@@ -69,3 +69,4 @@ def test_activity5(client):
 def test_activity6(client):
     response = client.get('/activity6', follow_redirects=True)
     assert response.status_code == 200
+
