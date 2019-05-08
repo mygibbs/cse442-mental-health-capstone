@@ -131,3 +131,23 @@ def update_lastlogin():
 @login_required
 def contact():
     return render_template('contact.html', title='Contact Us', user=current_user, points=current_user.points)
+
+@bp.route('/weeklyQuiz')
+@login_required
+def weeklyquiz():
+    return render_template('weeklyquiz.html', title='Weekly Quiz',user=current_user, points = current_user.points)
+
+@bp.route('/weeklyQuizDone')
+@login_required
+def weeklyquizDone():
+    return render_template('weeklyquizDone.html', title='Weekly Quiz',user=current_user, points = current_user.points)
+
+
+@bp.route('/update_quiz_status', methods=['POST'])
+@login_required
+def update_quiz_status():
+    user = current_user
+    user.quiz_taken=1
+    db.session.add(user)
+    db.session.commit()
+    return render_template('weeklyquiz.html', title='weeklyQuiz', user=current_user, points = current_user.points)

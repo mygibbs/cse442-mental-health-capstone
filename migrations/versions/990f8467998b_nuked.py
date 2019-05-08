@@ -1,8 +1,8 @@
-"""Cleaned migrations folder from earlier issues.
+"""nuked
 
-Revision ID: 197373f09823
+Revision ID: 990f8467998b
 Revises: 
-Create Date: 2019-05-07 23:33:30.666229
+Create Date: 2019-05-08 11:43:50.360271
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '197373f09823'
+revision = '990f8467998b'
 down_revision = None
 branch_labels = None
 depends_on = None
