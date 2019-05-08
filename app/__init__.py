@@ -32,6 +32,10 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp)
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
+    from app.activities import bp as activities_bp
+    app.register_blueprint(activities_bp)
+    from app.api import bp as api_bp
+    app.register_blueprint(api_bp, url_prefix='/api')
 
     # if config_class is not None:
     #     app.config.update(config_class)
