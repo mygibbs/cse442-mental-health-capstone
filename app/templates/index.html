@@ -153,6 +153,7 @@ window.onload = update_lastlogin;
       })
       $("#tourcontroller").click(()=>{
         if(frame === 0){
+          sb_close();
           $("#tourtext").text("Here We Have the Top Navigation Bar");
           $(".topnavigation").removeClass("w3-border-grey");
           $(".topnavigation").addClass("w3-border-red");
@@ -180,15 +181,41 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
+        //adding in handling for the multiplier and streaks
         else if(frame === 3){
-          $("#tourtext").text("From Here You Can Always Close This Menu");
+          $("#tourtext").text("Here You Can See The Progress Bar Which Tracks Your Evolution");
           window.scrollBy(0,-800);
           $("#side_profile").removeClass("current_elt");
-          $("#side_close").addClass("current_elt");
+          $("#progbar").addClass("current_elt");
 
           frame ++;
         }
         else if(frame === 4){
+          $("#tourtext").text("Here You Can See Your Current Level");
+          window.scrollBy(0,-800);
+          $("#progbar").removeClass("current_elt");
+          $("#level").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 5){
+          $("#tourtext").text("Here You Can See Your Multiplier And Streaks");
+          window.scrollBy(0,-800);
+          $("#level").removeClass("current_elt");
+          $("#side_streakinfo").addClass("current_elt");
+
+          frame ++;
+        }
+
+        else if(frame === 6){
+          $("#tourtext").text("From Here You Can Always Close This Menu");
+          window.scrollBy(0,-800);
+          $("#side_streakinfo").removeClass("current_elt");
+          $("#side_close").addClass("current_elt");
+
+          frame ++;
+        }
+        else if(frame === 7){
           $("#tourtext").text("You Can Also Return Home From Any Part of The App");
           window.scrollBy(0,-800);
           $("#side_close").removeClass("current_elt");
@@ -199,7 +226,7 @@ window.onload = update_lastlogin;
 
 
         //highlight exercises
-        else if(frame === 5){
+        else if(frame === 8){
           $("#tourtext").text("Check Out All The Available Exercises Right Here");
           window.scrollBy(0,-800);
           $("#side_home").removeClass("current_elt");
@@ -207,7 +234,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 6){
+        else if(frame === 9){
           $("#tourtext").text("You Can Also View Your Achievements Right From Here");
           window.scrollBy(0,-800);
           $("#side_exlist").removeClass("current_elt");
@@ -216,7 +243,7 @@ window.onload = update_lastlogin;
           frame ++;
         }
         //highlight the about us page
-        else if(frame === 7){
+        else if(frame === 10){
           $("#tourtext").text("If You Would Like To Know More About Us, Click Here");
           window.scrollBy(0,-800);
           $("#side_ach").removeClass("current_elt");
@@ -224,7 +251,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 8){
+        else if(frame === 11){
           $("#tourtext").text("Lastly You Can Logout Right Here");
           window.scrollBy(0,-800);
           $("#side_about").removeClass("current_elt");
@@ -232,7 +259,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 9){
+        else if(frame === 12){
           window.scrollTo(0,1140);
           $("#tourtext").text("Check Out The First Activity Here - Take A Psychological Quiz");
           $("#side_logout").removeClass("current_elt");
@@ -240,7 +267,7 @@ window.onload = update_lastlogin;
           sb_close();
           frame ++;
         }
-        else if(frame === 10){
+        else if(frame === 13){
           window.scrollTo(0,1140);
           $("#tourtext").text("Check Out The Second Activity Here - Practice A Stress Reducing Technique");
           $("#a_1").removeClass("current_elt");
@@ -248,7 +275,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 11){
+        else if(frame === 14){
           window.scrollTo(0,1140);
           $("#tourtext").text("Check Out The Third Activity Here - Listen To Stress Reducing Music");
           $("#a_2").removeClass("current_elt");
@@ -256,7 +283,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 12){
+        else if(frame === 15){
           window.scrollTo(0,1500);
           $("#tourtext").text("Check Out The Fourth Activity Here - Take A Self-Care Assessment And Find Yourself");
           $("#a_3").removeClass("current_elt");
@@ -264,7 +291,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 13){
+        else if(frame === 16){
           window.scrollTo(0,1500);
           $("#tourtext").text("Check Out The Fifth Activity Here - Do Some Mindful Meditation");
           $("#a_4").removeClass("current_elt");
@@ -272,7 +299,7 @@ window.onload = update_lastlogin;
 
           frame ++;
         }
-        else if(frame === 14){
+        else if(frame === 17){
           window.scrollTo(0,1500);
           $("#tourtext").text("Check Out The Sixth Activity Here - Try To Work On Your Breathing");
           $("#a_5").removeClass("current_elt");
@@ -280,7 +307,7 @@ window.onload = update_lastlogin;
           $("#tourcontroller").text("Close Tour");
           frame ++;
         }
-        else if(frame === 15){
+        else if(frame === 18){
           window.scrollBy(0,-2000);
           $("#a_6").removeClass("current_elt");
           $("#tourcontroller").text("Next");
