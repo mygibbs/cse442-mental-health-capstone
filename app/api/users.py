@@ -10,13 +10,13 @@ from app.api.auth import token_auth
 
 
 @bp.route('/users/<int:id>', methods=['GET'])
-@token_auth.login_required
+# @token_auth.login_required
 def get_user(id):
     return jsonify(User.query.get_or_404(id).to_dict())
 
 
 @bp.route('/users', methods=['GET'])
-@token_auth.login_required
+# @token_auth.login_required
 def get_users():
     page = request.args.get('page', 1, type=int)
     per_page = min(request.args.get('per_page', 10, type=int), 100)
@@ -25,7 +25,7 @@ def get_users():
 
 
 @bp.route('/users/<int:id>/achievements', methods=['GET'])
-@token_auth.login_required
+# @token_auth.login_required
 def get_achievements(id):
     user = User.query.get_or_404(id)
     page = request.args.get('page', 1, type=int)
@@ -55,7 +55,7 @@ def create_user():
 
 
 @bp.route('/users/<int:id>', methods=['PUT'])
-@token_auth.login_required
+# @token_auth.login_required
 def update_user(id):
     if g.current_user.id != id:
         abort(403)
