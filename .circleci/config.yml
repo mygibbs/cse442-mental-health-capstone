@@ -37,9 +37,9 @@ jobs:
 #      - run: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
 #      - run: tar -xzf geckodriver-download.tar.gz
 #      - run: cd geckodriver*
-      - run: pip install mozdownload mozinstall
-      - run: mozdownload --version latest --destination firefox.tar.bz2
-      - run: mozinstall firefox.tar.bz2
+#      - run: pip install mozdownload mozinstall
+#      - run: mozdownload --version latest --destination firefox.tar.bz2
+#      - run: mozinstall firefox.tar.bz2
       - run: wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
       - run: gunzip -c geckodriver.tar.gz | tar xopf -
       - run: chmod +x geckodriver && mv geckodriver /usr/bin/
