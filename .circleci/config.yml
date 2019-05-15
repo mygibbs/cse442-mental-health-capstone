@@ -34,9 +34,9 @@ jobs:
       - run: sudo pip install selenium
       - run: sudo pip install requests
       # Downloading Geckodriver
-      - run: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
-      - run: tar -xzf geckodriver-download.tar.gz
-      - run: cd geckodriver*
+#      - run: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+#      - run: tar -xzf geckodriver-download.tar.gz
+#      - run: cd geckodriver*
       - run: pip install mozdownload mozinstall
       - run: mozdownload --version latest --destination firefox.tar.bz2
       - run: mozinstall firefox.tar.bz2
