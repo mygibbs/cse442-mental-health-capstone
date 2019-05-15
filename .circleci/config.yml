@@ -30,14 +30,14 @@ jobs:
       - run: sudo pip install selenium
       - run: sudo pip install requests
       # Downloading Geckodriver
-      - run: curl -O https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
-      - run: tar -xvzf geckodriver-v0.24.0-linux64.tar.gz
-      - run: mv geckodriver-v0.24.0-linux64/geckodriver /usr/bin/geckodriver
+      - run: curl -OL https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+      - run: tar -xzf geckodriver-v0.24.0-linux64.tar.gz  -C /tmp/geckodriver-firefox
+      - run: mv /tmp/geckodriver-firefox/geckodriver-v0.24.0-linux64/geckodriver /usr/bin/geckodriver
       # - run:
       # command: python tests/test_ub_mental_health_auth.py
       - run:
           name: Download Selenium
-          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+          command: curl -OL http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
