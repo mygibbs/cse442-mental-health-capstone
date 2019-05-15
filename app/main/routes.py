@@ -39,26 +39,30 @@ def achievements():
 @login_required
 def update_achievements():
     user = current_user
-    if (user.points // 1000 + 1) == 2:
-        user.achievement1 = 1;
-    if (user.points // 1000 + 1) == 5:
-        user.achievement2 = 1;
-    if (user.points // 1000 + 1) == 10:
-        user.achievement3 = 1;
-    if (user.points // 1000 + 1) == 15:
-        user.achievement4 = 1;
-    if (user.points // 1000 + 1) == 20:
-        user.achievement5 = 1;
-    if (user.points // 1000 + 1) == 25:
-        user.achievement6 = 1;
-    if (user.points // 1000 + 1) == 30:
-        user.achievement7 = 1;
-    if (user.points // 1000 + 1) == 40:
-        user.achievement8 = 1;
-    if (user.points // 1000 + 1) == 50:
-        user.achievement9 = 1;
-    if (user.points // 1000 + 1) == 100:
-        user.achievement10 = 1;
+    if user.points is None:
+        pass
+    elif (user.points // 1000 + 1) == 2:
+        user.achievement1 = 1
+    elif (user.points // 1000 + 1) == 5:
+        user.achievement2 = 1
+    elif (user.points // 1000 + 1) == 10:
+        user.achievement3 = 1
+    elif (user.points // 1000 + 1) == 15:
+        user.achievement4 = 1
+    elif (user.points // 1000 + 1) == 20:
+        user.achievement5 = 1
+    elif (user.points // 1000 + 1) == 25:
+        user.achievement6 = 1
+    elif (user.points // 1000 + 1) == 30:
+        user.achievement7 = 1
+    elif (user.points // 1000 + 1) == 40:
+        user.achievement8 = 1
+    elif (user.points // 1000 + 1) == 50:
+        user.achievement9 = 1
+    elif (user.points // 1000 + 1) == 100:
+        user.achievement10 = 1
+    else:
+        pass
     db.session.commit()
     return render_template('achievements.html', title='Achievements', user=current_user)
 

@@ -811,6 +811,7 @@ select::-ms-expand {
   var updated = {{points|int}};
   var actualPoint = {{points|int}};
   ifClicked = () => {
+    current_user.points += 100
 
       $.each($("select"), function() {
         if( $(this).val() !== "_"){
