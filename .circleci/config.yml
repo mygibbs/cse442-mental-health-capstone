@@ -31,8 +31,8 @@ jobs:
       - run: sudo pip install requests
       # Downloading Geckodriver
       - run: curl -OL https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
-      - run: tar -xzf geckodriver-v0.24.0-linux64.tar.gz  -C /tmp/geckodriver-firefox
-      - run: mv /tmp/geckodriver-firefox/geckodriver-v0.24.0-linux64/geckodriver /usr/bin/geckodriver
+      - run: tar -xzf geckodriver-v0.24.0-linux64.tar.gz
+      - run: mv geckodriver-v0.24.0-linux64/geckodriver /usr/bin/geckodriver
       # - run:
       # command: python tests/test_ub_mental_health_auth.py
       - run:
