@@ -1,13 +1,17 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
 
 
 class UBMentalHealthAuth(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        cap = DesiredCapabilities().FIREFOX
+        cap["marionette"] = False
+        self.driver = webdriver.Firefox(capabilities=cap, executable_path="/usr/bin/geckodriver")
 
     def test_title(self):
         driver = self.driver
