@@ -40,18 +40,18 @@ jobs:
 #      - run: pip install mozdownload mozinstall
 #      - run: mozdownload --version latest --destination firefox.tar.bz2
 #      - run: mozinstall firefox.tar.bz2
-      - run: wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+      - run: wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
       - run: gunzip -c geckodriver.tar.gz | tar xopf -
       - run: chmod +x geckodriver && sudo mv geckodriver /usr/bin/
       # - run:
       # command: python tests/test_ub_mental_health_auth.py
-      - run:
-          name: Download Selenium
-          command: curl -OL http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      - run:
-          name: Start Selenium
-          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-          background: true
+#      - run:
+#          name: Download Selenium
+#          command: curl -OL http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+#      - run:
+#          name: Start Selenium
+#          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+#          background: true
       # Testing Begins
       - run:
           name: Running tests
