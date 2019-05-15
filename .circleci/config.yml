@@ -39,7 +39,13 @@ jobs:
 #      - run: cd geckodriver*
 #      - run: pip install mozdownload mozinstall
 #      - run: mozdownload --version latest --destination firefox.tar.bz2
-#      - run: mozinstall firefox.tar.bz2
+#      - run: mozinstall firefox.tar.bz2-run
+      - run:
+          name: Update Chromedriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
+            sudo apt-get install firefox
       - run: wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
       - run: gunzip -c geckodriver.tar.gz | tar xopf -
       - run: chmod +x geckodriver && sudo mv geckodriver /usr/bin/
@@ -74,7 +80,7 @@ jobs:
           only-branch: master
 
 orbs:
-  heroku: circleci/heroku@0.0.5
+  heroku: circleci/heroku@0.0.6
 
 workflows:
   build-deploy:
