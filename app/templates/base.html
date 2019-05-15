@@ -114,9 +114,9 @@
         <i class="material-icons topNavItem">person</i>
         &nbsp;&nbsp;Hi,&nbsp;&nbsp;{{ current_user.username }}!&nbsp;&nbsp;
       {% if current_user.currstreak is none %}
-      Current Streak: 1 day(s)!&nbsp;&nbsp;
+      Streak: 1 day(s)!&nbsp;&nbsp;
       {% else %}
-      Current Streak: {{ current_user.currstreak }} day(s)!&nbsp;&nbsp;
+      Streak: {{ current_user.currstreak }} day(s)!&nbsp;&nbsp;
       {%endif%}
     </a>
       </button>
