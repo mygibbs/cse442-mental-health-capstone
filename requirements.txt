@@ -38,7 +38,7 @@ psycopg2==2.7.7
 py==1.8.0
 pycparser==2.19
 Pygments==2.3.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 pytest==4.3.0
 pytest-cov==2.6.1
 pytest-flask==0.14.0
